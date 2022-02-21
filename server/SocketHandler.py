@@ -8,6 +8,9 @@ class Client:
         self._connection,self._addred = connection
 
 
+    def __str__(self):
+        return f"{self.name}"
+
 class Socket_handler:
 
     def __init__(self, client: Client) -> None:

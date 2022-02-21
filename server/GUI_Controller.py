@@ -38,9 +38,17 @@ class Label:
     def __init__(self, text_field: str = '', text_font: font = None) -> None:
         self.text = text_field
         self.font = text_font
-
-    def draw_label(self, surface: Surface, pos: tuple[float, float], color: Color = Color(0, 0, 0)) -> None:
-        surface.blit(self.font.render(self.text, True, color), pos)
+        self.active = True
+        
+    def draw_label(self, surface: Surface, pos: tuple[float, float], color: Color = Color(0, 0, 0), center_text: bool = False) -> None:
+        if self.active:
+            if center_text:
+                title_srf = self.font.render(
+                    self.text, True, Color(70, 50, 111))
+                title_rect = title_srf.get_rect(center=pos)
+                surface.blit(title_srf, title_rect)
+            else:
+                surface.blit(self.font.render(self.text, True, color), pos)
 
 class Rectangle:
 
@@ -63,7 +71,7 @@ class Button:
         mouse_pos = pg.mouse.get_pos()
         return self.rect_button.rect.collidepoint(mouse_pos)
 
-    def draw_button(self, surface):
+    def draw_button(self, surface,center:bool=False):
         button_color = self.hover_color
         text_color = self.click_color
         if self.mouse_listener():
@@ -71,7 +79,7 @@ class Button:
             text_color = self.hover_color
         self.rect_button.draw_rect(surface, button_color)
         self.text_button.draw_label(
-            surface, self.rect_button.position, text_color)
+            surface, self.rect_button.rect.center, text_color,center)
 
 class GuiController:
 
@@ -87,6 +95,7 @@ class GuiController:
         }
         self.clock = pg.time.Clock()
         self.font = pg.font.SysFont("Arial", 24)
+        self.log_list:list[Label]=[]
 
         # create new text-box for log server
         self.cmd_server = Rectangle((20, 30), (760, 500))
@@ -105,12 +114,22 @@ class GuiController:
     def shouldExit(self):
         return self.quitButton.mouse_listener()
 
+    def add_log(self,log:str):
+        log= Label(log,self.font)
+        self.log_list.append(log)
+        
+    
     def draw_screen(self):
         self.screen.fill(self.palette["gray"])
         self.cmd_server.draw_rect(self.screen, self.palette["white"])
         self.port_label.draw_label(
             self.screen, (300, 0), self.palette["light-green"])
-        self.quitButton.draw_button(self.screen)
+        self.quitButton.draw_button(self.screen,True)
+        x=0
+        limit = len(self.log_list)-19 if (len(self.log_list)-19)>0 else 0
+        for log in self.log_list[limit:]:
+            log.draw_label(self.screen,(30,40+x),(0,0,0,))
+            x+=25
 
         pg.display.update()
         self.clock.tick(REFRASH)
