@@ -28,7 +28,7 @@ Version py 3.9.7
 
 ## UML
 
-## Running Server:
+## Running Server with argv:
 ```bash
 # Clone the repository
 $ git clone https://github.com/bsharabi/Chat_py.git
@@ -40,6 +40,15 @@ $ Run "python3.9 Controller <host> <port>"
 $ Run "python3 Controller <host> <port>"
 # Example
 $ Run "python3/3.9 Controller localhost 3000"
+```
+
+## Running Server without argv:
+```bash
+It is possible to run in the following way without       arguments and the default value is:
+host = localhost
+port = 3000
+# Example
+$ Run "python3/3.9 Controller"
 ```
 
 ## Running Client:
