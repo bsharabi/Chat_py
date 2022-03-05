@@ -232,7 +232,6 @@ class TCPServer(Iserver):
                 "data": {"listOnline": listOnline}
             }
             ressponse = Response(res="udpateFriend", body=body)
-            print(listOnline)
             self.brodcast(ressponse)
 
     def client_byConnection(self, connection) -> IClient:
@@ -319,8 +318,11 @@ class TCPServer(Iserver):
             exceptional.append(connection)
             print(e)
 
-    def readUDP(self, connection) -> None:
-        pass
+    def readUDP(self, connection:socket) -> None:  
+        data,address=connection.recvfrom(4096)
+        print(data,address)
+        self.serverUDP.sendto("hello from server".encode(),address)
+
 
     # ------------------- public function --------------------
     def register(self, req: IRequest, connection) -> bool:
@@ -375,11 +377,11 @@ class TCPServer(Iserver):
             fileName = req.get_file_name()
             file_exist = os.path.isfile(path.join(mypath, fileName))
             if file_exist:
-                response = Response(res="exist")
+                response = Response(res="downloadFile",flag=1 )
                 self.send_response(connection, response)
                 return True
             else:
-                response = Response(res="D-exist")
+                response = Response(res="D-downloadFile", flag=0)
                 self.send_response(connection, response)
                 return False
 
@@ -410,7 +412,7 @@ class TCPServer(Iserver):
                     self.ThreadList.append(th)
                     th.start()
 
-                elif s.type == self.serverUDP.type:
+                elif s.type == self.serverUDP.type: 
                     self.readUDP(s)
             try:
                 self.update_connections(inputs, outputs, exceptional)
@@ -423,4 +425,3 @@ class TCPServer(Iserver):
         self.close_connection_TCP()
         print("Server destroyed, Goodbye!")
 
-# TODO writeable

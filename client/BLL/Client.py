@@ -134,6 +134,8 @@ class Client(Iclient):
         self.options["udpateFriend"] = self.udpateFriend
         self.options["brodcastMsg"] = self.brodcast
         self.options["msg"] = self.get_msg
+        self.options["fileList"] = self.set_file_list
+        self.options["downloadFile"] = self.download_file
 
     def connect_to_TCP(self) -> bool:
         try:
@@ -147,7 +149,6 @@ class Client(Iclient):
 
     def connect_to_UDP(self):
         try:
-            self._socket_UDP.connect((self.host, self.port))
             print("The connection was successful (UDP)")
             self.connectedUDP = True
             return True
@@ -260,8 +261,9 @@ class Client(Iclient):
         if connection is self._socket_TCP:
             self.server_response(connection)
 
-    def readUDP(self, connection):
-        pass
+    def readUDP(self, connection:socket):
+        data,address=connection.recvfrom(4096)
+        print(data,address)
 
     def server_response(self, connection) -> None:
         try:
@@ -289,8 +291,14 @@ class Client(Iclient):
         self.friends.get(nameFriend).write(
             "msg", msg=msg, fromClient=nameFriend, toClient=self.name, date=dateT)
         self.mc+=1
+     
+    def set_file_list(self,res: IResponse)->None:
+        try:
+            self.file_list=res.get_data()["filesList"]
+        except Exception as e:
+            print(e)
         
-    def get_msg(self, res: IResponse):
+    def get_msg(self, res: IResponse)->None:
         body = res.get_body()
         data: dict = res.get_data()
         msg = data.get("msg")
@@ -301,6 +309,17 @@ class Client(Iclient):
             "msg", msg=msg, fromClient=nameFriend, toClient=self.name, date=dateT)
         self.mc+=1
 
+    def download_file(self, res: IResponse):
+        try:
+            downloadFlag=res.get_data()["flag"]
+            if downloadFlag==1:
+                if self.connect_to_UDP():
+                    print("success")
+                    self._socket_UDP.sendto("sss".encode(),(self.host,self.port))
+        except Exception as e:
+            print(e)
+        pass
+    
     def request(self, req: str = "", fileName: str = "",  password: str = "", origin: str = "", toClient: str = "", *args, **kwargs):
         request = Request(req=req, fileName=fileName, user=self.name, password=password,
                           origin=origin, toClient=toClient, *args, **kwargs)
@@ -320,10 +339,9 @@ class Client(Iclient):
                     inputs, outputs, inputs, 0.1)
                 for s in readable:
                     s: socket
-                    if s.proto == self._socket_TCP.proto:
-                       
+                    if s.type == self._socket_TCP.type:
                         self.readTCP(s)
-                    elif s.proto == self._socket_UDP.proto:
+                    elif s.type == self._socket_UDP.type:
                         self.readUDP(s)
             except Exception as e:
                 print(e)

@@ -16,6 +16,8 @@ class Iclient:
         self.path = path.join("./Client", "data")
         if not path.isdir("./Client/data"):
             os.mkdir(self.path)
+        self.file_list:list[str]=[]
+
 
 
     def connect_to_TCP(self):
@@ -27,13 +29,13 @@ class Iclient:
     def close_connection_TCP(self):
         pass
 
-    def login():
+    def login(self):
         pass
 
-    def register():
+    def register(self):
         pass
 
-    def request(self, *args, **kwargs):
+    def request(self, req: str = "", fileName: str = "",  password: str = "", origin: str = "", toClient: str = "", *args, **kwargs):
         pass
 
     def response(self):

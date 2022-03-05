@@ -16,10 +16,15 @@ REFRASH = 60
 FIELD_WIDTH, FIELD_HEIGHT = (590, 175)
 MSG_WIDTH, MSG_HEIGHT = (590, 355)
 CLIENT_LIST_WIDTH, CLIENT_LIST_HEIGHT = (180, 540)
+FILE_LIST_WIDTH, FILE_LIST_HEIGHT = (180, 540)
+
 SEND_BUTTON_WIDTH, SEND_BUTTON_HEIGHT = (70, 30)
 LOADING_BAR_WIDTH, LOADING_BAR_HEIGHT = (500, 30)
-GET_FILE_BUTTON_WIDTH, GET_FILE_BUTTON_HEIGHT = (45, 30)
-PUT_FILE_BUTTON_WIDTH, PUT_FILE_BUTTON_HEIGHT = (45, 30)
+GET_FILE_BUTTON_WIDTH, GET_FILE_BUTTON_HEIGHT = (100, 30)
+STOP_BUTTON_WIDTH, STOP_BUTTON_HEIGHT = (70, 30)
+
+BACK_BUTTON_WIDTH, BACK_BUTTON_HEIGHT = (150, 30)
+
 
 # ------------------------------- View -------------------------------------
 
@@ -57,7 +62,6 @@ class GUI_Panel():
     def __del__(self):
         print("Client view is distroy")
 
-
 class Label:
     '''Initilaize'''
 
@@ -76,7 +80,6 @@ class Label:
             else:
                 surface.blit(self.font.render(self.text, True, color), pos)
 
-
 class Rectangle:
 
     def __init__(self, position: tuple[int, int], size_box: tuple[int, int]) -> None:
@@ -89,11 +92,18 @@ class Rectangle:
         mouse_pos = pg.mouse.get_pos()
         return self.rect.collidepoint(mouse_pos)
 
+    def gradientRect(self, window, left_colour, right_colour, target_rect ):
+        """ Draw a horizontal-gradient filled rectangle covering <target_rect> """
+        colour_rect = pg.Surface( ( 2, 2 ) )                                   # tiny! 2x2 bitmap
+        pg.draw.line( colour_rect, left_colour,  ( 0,0 ), ( 0,1 ) )            # left colour line
+        pg.draw.line( colour_rect, right_colour, ( 1,0 ), ( 1,1 ) )            # right colour line
+        colour_rect = pg.transform.smoothscale( colour_rect, ( target_rect.width, target_rect.height ) )  # stretch!
+        window.blit( colour_rect, target_rect )                                    # paint it
+    
+    
     '''Draws the rectangle on Surface'''
-
     def draw_rect(self, surface: Surface, color: Color) -> None:
-        pg.draw.rect(surface, color, self.rect)
-
+        pg.draw.rect(surface, color, self.rect ,border_radius=4)
 
 class RectLabel:
     def __init__(self, rect_label: Rectangle, lable: Label, color: Color = (204, 204, 204), text_color: Color = (0, 0, 0)) -> None:
@@ -108,7 +118,6 @@ class RectLabel:
         self.label.draw_label(
             surface, self.rect.rect.topleft, self.text_color, False)
         pass
-
 
 class Button:
 
@@ -142,7 +151,6 @@ class Button:
         self.text_button.draw_label(
             surface, self.rect_button.rect.center, self.text_color, center)
 
-
 class RectangleList:
 
     def __init__(self, rect_list_Button: list[Button], rect: Rectangle) -> None:
@@ -163,7 +171,6 @@ class RectangleList:
             client.draw_button(surf, True)
             self.p += 55
             pass
-
 
 class InputField:
 
@@ -198,7 +205,6 @@ class InputField:
         pos = self.rect_angle.position
         self.lable.draw_label(surface, pos, textColor)
 
-
 class GuiController:
 
     def __init__(self):
@@ -211,19 +217,14 @@ class GuiController:
             "green": (175, 237, 169),
             "red": (255, 0, 0),
             "purple": (70, 50, 111),
-            "light-red": (252, 87, 87)
+            "light-red": (252, 87, 87),
+            "black":(0,0,0)
         }
         self.clock = pg.time.Clock()
         self.font = pg.font.SysFont("Arial", 24, bold=True)
 
-    def scale(data, min_screen, max_screen, min_data, max_data):
-        """
-        get the scaled data with proportions min_data, max_data
-        relative to min and max screen dimentions
-        """
-        return ((data - min_data) / (max_data-min_data)) * (max_screen - min_screen) + min_screen
 
-    def shouldAdvance(self, client):
+    def shouldAdvance(self):
 
         # override this
         pass
@@ -233,7 +234,7 @@ class GuiController:
         # override this
         pass
 
-    def handleClick(self, client):
+    def handleClick(self):
 
         # override this
         pass
@@ -256,7 +257,6 @@ class GuiController:
     def __del__(self):
         # print("Viewer controller is distroy")
         pass
-
 
 class Selector_server(GuiController):
 
@@ -346,7 +346,6 @@ class Selector_server(GuiController):
         pg.display.update()
         self.clock.tick(REFRASH)
 
-
 class ClientLogin(GuiController):
 
     def __init__(self, client: Iclient):
@@ -424,7 +423,6 @@ class ClientLogin(GuiController):
     def getNextViewController(self):
         th:threading.Thread=threading.Thread(target=self.client.response)
         th.start()
-        print(th.getName())
         return Chat(self.client)
 
     def draw_screen(self):
@@ -454,7 +452,6 @@ class ClientLogin(GuiController):
     def handleWheel(self, event):
         pass
 
-
 class ChatRoom(GuiController):
 
     def __init__(self, name: str, client: Iclient):
@@ -481,35 +478,16 @@ class ChatRoom(GuiController):
 
         self.input_box = InputField(label_box, chat_box_to)
 
-        self.loading_bar = Rectangle(
-            (10, CLIENT_LIST_HEIGHT+20), (LOADING_BAR_WIDTH, LOADING_BAR_HEIGHT))
-
         self.send_button = Button(
             rect_button=Rectangle(
                 (WIDTH-80, CLIENT_LIST_HEIGHT+20), (SEND_BUTTON_WIDTH, SEND_BUTTON_HEIGHT)),
             text_button=Label("Send", self.font),
             hover_color=Color(self.palette["green"]),
             rect_color=Color(self.palette["light-green"]),
-            text_color=Color(self.palette["red"])
+            text_color=Color(self.palette["black"])
         )
 
-        self.get_file_button = Button(
-            rect_button=Rectangle((LOADING_BAR_WIDTH+20, CLIENT_LIST_HEIGHT+20),
-                                  (GET_FILE_BUTTON_WIDTH, GET_FILE_BUTTON_HEIGHT)),
-            text_button=Label("Get", self.font),
-            hover_color=Color(self.palette["green"]),
-            rect_color=Color(self.palette["light-green"]),
-            text_color=Color(self.palette["red"])
-        )
-
-        self.put_file_button = Button(
-            rect_button=Rectangle((LOADING_BAR_WIDTH+30+GET_FILE_BUTTON_WIDTH,
-                                  CLIENT_LIST_HEIGHT+20), (PUT_FILE_BUTTON_WIDTH, PUT_FILE_BUTTON_HEIGHT)),
-            text_button=Label("Put", self.font),
-            hover_color=Color(self.palette["green"]),
-            rect_color=Color(self.palette["light-green"]),
-            text_color=Color(self.palette["red"])
-        )
+        
         try:
             self.add_msg()
         except:
@@ -522,7 +500,7 @@ class ChatRoom(GuiController):
             messages, f, t = self.friend.read("msg")
             for message in messages:
                 rect = Rectangle(
-                    (210, 335+x), ((len(message["msg"])+len(message["date"]))*10, 28))
+                    (210, 335+x), ((len(message["msg"])+len(message["date"]))*11, 28))
                 colorMsg = (204, 204, 204) if message["fromClient"] == self.clientName else (
                     193, 255, 166)
                 date = message["date"]
@@ -572,18 +550,14 @@ class ChatRoom(GuiController):
         self.input_box.draw_InputField(
             self.screen, self.palette["white"], self.palette["green"])
 
-        self.loading_bar.draw_rect(self.screen, self.palette["white"])
         self.send_button.draw_button(self.screen, True)
-        self.get_file_button.draw_button(self.screen, True)
-        self.put_file_button.draw_button(self.screen, True)
-        x = 0
+
         limit = len(self.msg_list)-14 if (len(self.msg_list)-14) > 0 else 0
         for msg in self.msg_list[limit:]:
             msg.draw_rectLabel(self.screen)
 
         pg.display.update()
         self.clock.tick(REFRASH)
-
 
 class Chat(GuiController):
 
@@ -600,16 +574,28 @@ class Chat(GuiController):
         self.client_list_online = Rectangle(
             (10, 10), (CLIENT_LIST_WIDTH, CLIENT_LIST_HEIGHT))
         self.clientList = RectangleList([], self.client_list_online)
-        self.chat_room_label = Label("Hello There click ", self.font)
-        self.refresh = False
-        self.refresh_button = Button(
-            rect_button=Rectangle((LOADING_BAR_WIDTH+140, CLIENT_LIST_HEIGHT+20),
+        self.chat_room_label = Label("Welcome ", self.font)
+       
+        self.get_file_button = Button(
+            rect_button=Rectangle((LOADING_BAR_WIDTH+20, CLIENT_LIST_HEIGHT+20),
                                   (GET_FILE_BUTTON_WIDTH, GET_FILE_BUTTON_HEIGHT)),
-            text_button=Label("Get", self.font),
-            hover_color=Color(self.palette["light-green"]),
-            rect_color=Color(self.palette["green"]),
-            text_color=Color(self.palette["purple"])
+            text_button=Label("File List", self.font),
+            hover_color=Color(self.palette["green"]),
+            rect_color=Color(self.palette["light-green"]),
+            text_color=Color(self.palette["black"])
         )
+        self.stop_button = Button(
+            rect_button=Rectangle((LOADING_BAR_WIDTH+40+GET_FILE_BUTTON_WIDTH, CLIENT_LIST_HEIGHT+20),
+                                  (STOP_BUTTON_WIDTH, STOP_BUTTON_HEIGHT)),
+            text_button=Label("Stop", self.font),
+            hover_color=Color(self.palette["green"]),
+            rect_color=Color(self.palette["light-green"]),
+            text_color=Color(self.palette["black"])
+        )
+        self.start_download=False
+        self.get_file_active=False
+        self.loading_bar = Rectangle(
+            (10, CLIENT_LIST_HEIGHT+20), (LOADING_BAR_WIDTH, LOADING_BAR_HEIGHT))
         self.load_list_friend()
             
     def load_list_friend(self, f: int = 0, t: int = 10):
@@ -629,7 +615,7 @@ class Chat(GuiController):
                     self.palette["light-green"])if friend.isConnect else Color(self.palette["light-red"]),
                 rect_color=Color(
                     self.palette["green"] if friend.isConnect else Color(self.palette["red"])),
-                text_color=Color(self.palette["purple"])
+                text_color=Color(self.palette["black"])
             )
             self.left_pos_button += 55
             self.menu_side_friend.append(button)
@@ -637,12 +623,13 @@ class Chat(GuiController):
         self.count_friend = len(friends)
 
     def shouldAdvance(self):
-        if self.refresh:
-            self.refresh = False
+        if self.get_file_active:
+            self.get_file_active=False
+            return True
         self.clientList.rect.has_mouse()
 
     def getNextViewController(self):
-        return Selector_server()
+        return Choser(self.client)
 
     def handleWheel(self, event):
         if self.clientList.has_mouse():
@@ -655,11 +642,12 @@ class Chat(GuiController):
                 pass
 
     def handleClick(self):
-
+        if self.get_file_button.mouse_hover():
+            self.client.request(req="getFilesList")
+            
+            self.get_file_active=True if len(self.client.file_list)>0 else False
+        
         self.show_chat.handleClick()
-
-        if self.refresh_button.mouse_hover():
-            self.refresh = True
         if self.client_list_online.has_mouse():
             for client in self.menu_side_friend:
                 if client.mouse_hover():
@@ -681,15 +669,100 @@ class Chat(GuiController):
             self.show_chat.add_msg()
             self.mc = self.client.mc
         self.screen.fill(self.palette["gray"])
+        self.get_file_button.draw_button(self.screen, True)
+        self.stop_button.draw_button(self.screen,True)
+        self.loading_bar.draw_rect(self.screen, self.palette["white"])
+        if self.start_download:
+            self.loading_bar.gradientRect(self.screen, (0, 255, 0), (0, 100, 0), pg.Rect( (10, CLIENT_LIST_HEIGHT+20), (0, LOADING_BAR_HEIGHT) ))
         self.clientList.draw_scerrn(self.screen)
-        self.refresh_button.draw_button(self.screen, True)
         if not self.chat_room_label.active:
             self.show_chat.draw_screen()
         center = self.screen.get_rect().center
         self.chat_room_label.draw_label(self.screen, center, (0, 0, 0))
-
+        pg.display.flip()
         pg.display.update()
         self.clock.tick(REFRASH)
 
     def __del__(self):
         print("Chat is destroyed.")
+
+class Choser(GuiController):
+    
+    def __init__(self,client:Iclient):
+        super().__init__()
+        self.screen = pg.display.set_mode((FILE_LIST_WIDTH+20, FILE_LIST_HEIGHT+60))
+        self.client=client
+        self.back_button= Button(
+            rect_button=Rectangle((20, CLIENT_LIST_HEIGHT+20),
+                                  (BACK_BUTTON_WIDTH, BACK_BUTTON_HEIGHT)),
+            text_button=Label("Back to chat", self.font),
+            hover_color=Color(self.palette["green"]),
+            rect_color=Color(self.palette["light-green"]),
+            text_color=Color(self.palette["black"])
+        )
+        self.count_file=0
+        self.back_active=False
+        
+        self.menu_side_files: list[Button] = []
+        self.file_list_rect = Rectangle(
+            (10, 10), (FILE_LIST_WIDTH, FILE_LIST_HEIGHT))
+        
+        self.file_List = RectangleList([], self.file_list_rect)
+        self.load_fileList()
+    
+    def load_fileList(self):
+        self.menu_side_files.clear()
+        self.left_pos_button = 10
+        files: list[str] = self.client.file_list
+        for friend in files:
+            name = friend
+            button = Button(
+                rect_button=Rectangle((10, self.left_pos_button), (180, 50)),
+                text_button=Label(name, self.font),
+                hover_color=Color(self.palette["light-green"]),    
+                rect_color=Color(self.palette["green"]),     
+                text_color=Color(self.palette["black"])
+            )
+            self.left_pos_button += 55
+            self.menu_side_files.append(button)
+        self.file_List.rectListButton= self.menu_side_files
+        self.count_file = len(files)    
+    
+    def shouldAdvance(self):
+        if self.back_active:
+            self.back_active=False
+            return True
+        # override this
+        pass
+
+    def getNextViewController(self):
+        return Chat(self.client)
+
+    def handleClick(self):
+        if self.back_button.mouse_hover():
+           self.back_active=True
+        if self.file_list_rect.has_mouse():
+            for file in self.menu_side_files:
+                if file.mouse_hover():
+                    name = file.text_button.text
+                    self.back_active = True
+                    self.client.request(req="getFile",fileName=name)
+
+    def handleButtonPress(self, event):
+        pass
+
+    def handleWheel(self, event):
+        pass
+
+    def draw_screen(self):
+        self.screen.fill(self.palette["gray"])
+        self.file_list_rect.draw_rect(self.screen,(255,255,255))
+        self.back_button.draw_button(self.screen,True)
+        self.file_List.draw_scerrn(self.screen)
+        pg.display.update()
+        self.clock.tick(REFRASH)
+        pass
+
+    def __del__(self):
+        print("Viewer controller is distroy")
+        pass
