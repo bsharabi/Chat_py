@@ -1,21 +1,22 @@
 from os import path
 import os
 from .IFriends import IFriend
-
+import threading
 class Iclient:
 
     def __init__(self) -> None:
         self.id = id
-        self.mc = 0
         self.connected: bool = False
         self.name = "user"
+        self.mc=0
         self.port = None
         self.host = None
         self.friends: dict[str, IFriend] = {}
-        self.directory = "./client/data"
-        self.path = path.join("./client", "data")
-        if not path.isdir("./client/data"):
+        self.directory = "./Client/data"
+        self.path = path.join("./Client", "data")
+        if not path.isdir("./Client/data"):
             os.mkdir(self.path)
+
 
     def connect_to_TCP(self):
         pass

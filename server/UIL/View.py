@@ -1,10 +1,11 @@
-import sys
-sys.path.append("./Server")
-import threading
-import json
-from pygame import *
+from api.IServer import Iserver
 import pygame as pg
-from BLL.TCP_server import Iserver
+from pygame import *
+import json
+import threading
+import sys
+from turtle import up
+sys.path.append("./Server")
 WIDTH, HEIGHT = (800, 600)
 REFRASH = 60
 
@@ -19,13 +20,22 @@ class GUI_Panel():
         pg.mixer.init()
         self.server = server
         self.GuiController = GuiController(server)
-        self.down = 19
-        self.mc=0
-        self.up = 0
+        self.down_scroll = 19
+        self.up_scroll = 0
+        self.log_list = []
+        self.length_log_list = 0
+        self.change_log()
+        self.server.observs.append(self.change_log)
 
-    def scroll_mouse(self, op):
-        self.down += op
-        self.up += op
+    def scroll_mouse(self, inc):
+        if self.down_scroll+inc < 19 or self.up_scroll+inc < 0 or self.down_scroll+inc > self.length_log_list:
+            return
+        self.down_scroll += inc
+        self.up_scroll += inc
+
+    def change_log(self):
+        self.log_list, self.length_log_list = self.server.read_file_log()
+        self.log_list = self.log_list[self.up_scroll:self.down_scroll]
 
     def __call__(self):
         running = self.server.connect_to_TCP()
@@ -33,6 +43,7 @@ class GUI_Panel():
         if not running:
             return
         server_thread.start()
+
         while running:
             for e in pg.event.get():
                 if e.type == QUIT:
@@ -43,17 +54,12 @@ class GUI_Panel():
                         return
                 if e.type == pg.MOUSEWHEEL:
                     if e.y == -1:
-                        self.scroll_mouse(1)
+                        self.scroll_mouse(-1)
                     elif e.y == 1:
-                        if self.down > 19:
-                            self.scroll_mouse(-1)
-            ##TODO check if this same log 
-            if self.mc!=self.server.mc:
-                log_list, self.up, self.down = self.server.read_file_log(
-                    f=self.up, to=self.down)
-                self.mc=self.server.mc
+                        self.scroll_mouse(1)
+                    self.change_log()
 
-            self.GuiController.add_log(log_list)
+            self.GuiController.add_log(self.log_list)
             self.GuiController.draw_screen()
 
     def __del__(self):

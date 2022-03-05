@@ -69,12 +69,10 @@ class mongodb:
         return False, "D-exist"
 
     def auth_user(self, *args, **kwargs):
-        print("dddd",kwargs)
         try:
             users = self.db["Users"].find({"UserName": kwargs["UserName"]})
             
             for user in users:
-                print(user)
                 if user["UserName"] == kwargs["UserName"] and user["UserPassword"] == kwargs["UserPassword"]:
                     return True, "match"
         except:

@@ -1,16 +1,16 @@
+from datetime import datetime
+from api.IFriends import IFriend
+from api.IClient import Iclient
+import pygame as pg
+from pygame import *
+from turtle import pos
+from types import SimpleNamespace
+from tkinter import Label
+import json
+import threading
+from base64 import decode
 import sys
 sys.path.append("./Client")
-from base64 import decode
-import threading
-import json
-from tkinter import Label
-from types import SimpleNamespace
-from turtle import pos
-from pygame import *
-import pygame as pg
-from api.IClient  import Iclient
-from api.IFriends  import IFriend
-
 WIDTH, HEIGHT = (800, 600)
 REFRASH = 60
 FIELD_WIDTH, FIELD_HEIGHT = (590, 175)
@@ -22,6 +22,7 @@ GET_FILE_BUTTON_WIDTH, GET_FILE_BUTTON_HEIGHT = (45, 30)
 PUT_FILE_BUTTON_WIDTH, PUT_FILE_BUTTON_HEIGHT = (45, 30)
 
 # ------------------------------- View -------------------------------------
+
 
 class GUI_Panel():
 
@@ -42,11 +43,11 @@ class GUI_Panel():
                     client.close_connection_TCP()
                 elif event.type == pg.KEYDOWN:
                     self.GuiController.handleButtonPress(event)
-                elif event.type == pg.MOUSEBUTTONDOWN :
-                    if 1<=event.button<= 2:
+                elif event.type == pg.MOUSEBUTTONDOWN:
+                    if 1 <= event.button <= 2:
                         self.GuiController.handleClick()
                 elif event.type == pg.MOUSEWHEEL:
-                        self.GuiController.handleWheel(event)
+                    self.GuiController.handleWheel(event)
             if self.GuiController.shouldAdvance():
                 self.GuiController = self.GuiController.getNextViewController()
 
@@ -54,11 +55,9 @@ class GUI_Panel():
         return running
 
     def __del__(self):
-        print("Server distroy")
+        print("Client view is distroy")
 
 
-
-        
 class Label:
     '''Initilaize'''
 
@@ -77,6 +76,7 @@ class Label:
             else:
                 surface.blit(self.font.render(self.text, True, color), pos)
 
+
 class Rectangle:
 
     def __init__(self, position: tuple[int, int], size_box: tuple[int, int]) -> None:
@@ -94,22 +94,22 @@ class Rectangle:
     def draw_rect(self, surface: Surface, color: Color) -> None:
         pg.draw.rect(surface, color, self.rect)
 
-class RectLabel():
-    def __init__(self,rect_label: Rectangle,lable: Label,color:Color=(204,204,204),text_color:Color=(0,0,0)) -> None:
-        self.color=color
-        self.label=lable
-        self.rect=rect_label
-        self.text_color=text_color
-        
-        
-    def draw_rectLabel(self,surface,pos):
-        self.rect.rect.update(pos[0],pos[1])
+
+class RectLabel:
+    def __init__(self, rect_label: Rectangle, lable: Label, color: Color = (204, 204, 204), text_color: Color = (0, 0, 0)) -> None:
+        self.color = color
+        self.label = lable
+        self.rect = rect_label
+        self.text_color = text_color
+
+    def draw_rectLabel(self, surface):
         self.rect.draw_rect(surface, self.color)
         self.rect.rect.topleft = self.rect.position
         self.label.draw_label(
-            surface, self.rect.rect.center, self.text_color, False)
+            surface, self.rect.rect.topleft, self.text_color, False)
         pass
-        
+
+
 class Button:
 
     def __init__(self, rect_button: Rectangle, text_button: Label, hover_color: Color = (0, 0, 255), text_color: Color = (0, 255, 0), rect_color: Color = (255, 0, 0)):
@@ -118,6 +118,7 @@ class Button:
         self.hover_color = hover_color
         self.text_color = text_color
         self.rect_color = rect_color
+        self.active = False
 
     '''Check if the mouse hovers over the Rectangle Button'''
 
@@ -133,11 +134,14 @@ class Button:
         button_color = self.rect_color
         if self.mouse_hover():
             button_color = self.hover_color
-
+        if self.active:
+            button_color = (146, 181, 233)
+        self.color_now = button_color
         self.rect_button.draw_rect(surface, button_color)
         self.rect_button.rect.topleft = self.rect_button.position
         self.text_button.draw_label(
             surface, self.rect_button.rect.center, self.text_color, center)
+
 
 class RectangleList:
 
@@ -160,6 +164,7 @@ class RectangleList:
             self.p += 55
             pass
 
+
 class InputField:
 
     def __init__(self, label: Label, rect_angle: Rectangle):
@@ -179,11 +184,10 @@ class InputField:
         if event.key == pg.K_BACKSPACE and self.length <= len(self.lable.text[:-1]):
             self.lable.text = self.lable.text[:-1]
         elif event.key != pg.K_BACKSPACE:
-            if event.key== 32:
-                self.lable.text +=' '
+            if event.key == 32:
+                self.lable.text += ' '
             else:
                 self.lable.text += pg.key.name(event.key)
-            
 
     def draw_InputField(self, surface, panelColor, textColor):
         if self.active:
@@ -193,6 +197,7 @@ class InputField:
         self.rect_angle.draw_rect(surface, panelColor)
         pos = self.rect_angle.position
         self.lable.draw_label(surface, pos, textColor)
+
 
 class GuiController:
 
@@ -249,7 +254,9 @@ class GuiController:
         pass
 
     def __del__(self):
-        print("Viewer controller is distroy")
+        # print("Viewer controller is distroy")
+        pass
+
 
 class Selector_server(GuiController):
 
@@ -339,6 +346,7 @@ class Selector_server(GuiController):
         pg.display.update()
         self.clock.tick(REFRASH)
 
+
 class ClientLogin(GuiController):
 
     def __init__(self, client: Iclient):
@@ -414,7 +422,9 @@ class ClientLogin(GuiController):
         return False
 
     def getNextViewController(self):
-        threading.Thread(target=self.client.response).start()
+        th:threading.Thread=threading.Thread(target=self.client.response)
+        th.start()
+        print(th.getName())
         return Chat(self.client)
 
     def draw_screen(self):
@@ -444,30 +454,31 @@ class ClientLogin(GuiController):
     def handleWheel(self, event):
         pass
 
+
 class ChatRoom(GuiController):
 
-    def __init__(self, name: str,client:Iclient):
-        
+    def __init__(self, name: str, client: Iclient):
+
         super().__init__()
-        
-        self.down=0
-        
-        self.client=client
-        
-        self.friend:IFriend=client.friends.get(name)
-        
-        self.msg_list:list[RectLabel]=[]
-        
+
+        self.down = 0
+
+        self.client = client
+
+        self.friend: IFriend = client.friends.get(name)
+
+        self.msg_list: list[RectLabel] = []
+
         self.clientName = name
         # create new text-box for log server
         self.chat_box_from = Rectangle(
             (CLIENT_LIST_WIDTH+20, 10), (MSG_WIDTH, MSG_HEIGHT))
-        
+
         chat_box_to = Rectangle(
             (CLIENT_LIST_WIDTH+20, MSG_HEIGHT+20), (FIELD_WIDTH, FIELD_HEIGHT))
-        
+
         label_box = Label(f"", self.font)
-        
+
         self.input_box = InputField(label_box, chat_box_to)
 
         self.loading_bar = Rectangle(
@@ -490,7 +501,7 @@ class ChatRoom(GuiController):
             rect_color=Color(self.palette["light-green"]),
             text_color=Color(self.palette["red"])
         )
-                
+
         self.put_file_button = Button(
             rect_button=Rectangle((LOADING_BAR_WIDTH+30+GET_FILE_BUTTON_WIDTH,
                                   CLIENT_LIST_HEIGHT+20), (PUT_FILE_BUTTON_WIDTH, PUT_FILE_BUTTON_HEIGHT)),
@@ -507,37 +518,50 @@ class ChatRoom(GuiController):
     def add_msg(self):
         self.msg_list.clear()
         try:
-            messages,f,t=self.friend.read("msg")
+            x = 0
+            messages, f, t = self.friend.read("msg")
             for message in messages:
-                rect=Rectangle((0,0),(10,len(message)))
-                self.msg_list.append(RectLabel(rect, Label(message["msg"],self.font),(204,204,204),(0,0,0)))
-        except:
-            pass
-        
+                rect = Rectangle(
+                    (210, 335+x), ((len(message["msg"])+len(message["date"]))*10, 28))
+                colorMsg = (204, 204, 204) if message["fromClient"] == self.clientName else (
+                    193, 255, 166)
+                date = message["date"]
+                msg = message["msg"]
+                msg_label = f"{msg} {date}"
+                self.msg_list.append(RectLabel(rect, Label(
+                    msg_label, self.font), colorMsg, (0, 0, 0)))
+                x -= 30
+        except Exception as e:
+            print(e)
+
         pass
-    
+
     def handleWheel(self, event):
         pass
 
     def shouldAdvance(self):
         pass
-    
+
     def getNextViewController(self):
         pass
 
     def handleClick(self):
-        if self.send_button.mouse_hover():
+        if self.send_button.mouse_hover() and self.friend.isConnect:
             toClient = self.clientName
-            msg = f"{self.client.name}: "+self.input_box.lable.text
-            self.input_box.lable.text=''
-            self.friend.write("msg",msg=msg)
-            self.client.request(req="sendMsg",toClient=toClient,msg=msg)
+            msg = self.input_box.lable.text if toClient != "Friends Group" else f"{self.client.name}:" + \
+                self.input_box.lable.text
+            self.input_box.lable.text = ''
+            dateT = str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+            self.friend.write("msg", msg=msg, fromClient=self.client.name,
+                              toClient=self.clientName, date=dateT)
+            request = "sendMsg" if toClient != "Friends Group" else "sendMsgALL"
+            self.client.request(req=request, toClient=toClient, msg=msg)
             try:
                 self.add_msg()
             except:
                 pass
         self.input_box.active = self.input_box.has_mouse()
- 
+
     def handleButtonPress(self, event):
         if self.input_box.active:
             self.input_box.handle_Key_Press(event)
@@ -555,11 +579,11 @@ class ChatRoom(GuiController):
         x = 0
         limit = len(self.msg_list)-14 if (len(self.msg_list)-14) > 0 else 0
         for msg in self.msg_list[limit:]:
-            msg.draw_rectLabel(self.screen,(210, 335+x))
-            # msg.draw_label(self.screen, (210, 335+x), (0, 0, 0))
-            x -= 25
+            msg.draw_rectLabel(self.screen)
+
         pg.display.update()
         self.clock.tick(REFRASH)
+
 
 class Chat(GuiController):
 
@@ -568,10 +592,10 @@ class Chat(GuiController):
         super().__init__()
         self.mc = client.mc
         self.client = client
-        self.count_friend=0
+        self.count_friend = 0
         self.menu_side_friend: list[Button] = []
         self.chat_room: dict[str, ChatRoom] = {}
-        self.show_chat = ChatRoom("ALL",client)
+        self.show_chat = ChatRoom("Friends Group", client)
         self.left_pos_button = 10
         self.client_list_online = Rectangle(
             (10, 10), (CLIENT_LIST_WIDTH, CLIENT_LIST_HEIGHT))
@@ -587,17 +611,17 @@ class Chat(GuiController):
             text_color=Color(self.palette["purple"])
         )
         self.load_list_friend()
-        # self.client.observ.append(self.load_list_friend)
-
+            
     def load_list_friend(self, f: int = 0, t: int = 10):
         self.chat_room: dict[str, ChatRoom] = {}
         self.menu_side_friend.clear()
         self.left_pos_button = 10
-        friends: list[ IFriend] = list(self.client.friends.values())
+        friends: list[IFriend] = list(self.client.friends.values())
         for friend in friends[f:t]:
-            name=friend.name
+            name = friend.name
             if name not in self.chat_room:
-                self.chat_room[name] = ChatRoom(name,self.client)
+                with threading.Lock():
+                    self.chat_room[name] = ChatRoom(name, self.client)
             button = Button(
                 rect_button=Rectangle((10, self.left_pos_button), (180, 50)),
                 text_button=Label(name, self.font),
@@ -610,7 +634,7 @@ class Chat(GuiController):
             self.left_pos_button += 55
             self.menu_side_friend.append(button)
         self.clientList.rectListButton = self.menu_side_friend
-        self.count_friend=len(friends)
+        self.count_friend = len(friends)
 
     def shouldAdvance(self):
         if self.refresh:
@@ -623,25 +647,28 @@ class Chat(GuiController):
     def handleWheel(self, event):
         if self.clientList.has_mouse():
             f = self.clientList.y
-            if 0<=f<=self.count_friend:
+            if 0 <= f <= self.count_friend:
                 self.clientList.scroll(event.y)
                 self.load_list_friend(f, f+10)
             else:
-                self.clientList.y=0
+                self.clientList.y = 0
                 pass
-    
+
     def handleClick(self):
 
         self.show_chat.handleClick()
 
         if self.refresh_button.mouse_hover():
             self.refresh = True
-        for client in self.menu_side_friend:
-            if client.mouse_hover():
-                name = client.text_button.text
-                self.show_chat = self.chat_room[name]
-                self.chat_room_label.active = False
-
+        if self.client_list_online.has_mouse():
+            for client in self.menu_side_friend:
+                if client.mouse_hover():
+                    name = client.text_button.text
+                    client.active = True
+                    self.show_chat = self.chat_room[name]
+                    self.chat_room_label.active = False
+                else:
+                    client.active = False
         pass
 
     def handleButtonPress(self, event):

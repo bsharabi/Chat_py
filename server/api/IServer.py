@@ -2,19 +2,24 @@
 from os import path
 import json
 import os
-from datetime import datetime
 from api.IRequest import IRequest
-
+import sys
+from api.IResponse import *
 
 class Iserver:
 
     def __init__(self) -> None:
-        self.port = 3000
+        try:
+            self.port:int = int(sys.argv[2])
+            self.host:str = sys.argv[1]
+        except Exception as e:
+            self.host = "localhost"
+            self.port = 3000
+
         self.mc=1
-        self.host = "localhost"
         self.File = "./server/data/log.json"
         self.directory = "data"
-        self.parent_dir = "./"
+        self.parent_dir = "./server"
         self.path = path.join("./server", "data")
         if not path.isdir("./server/data"):
             os.mkdir(self.path)
@@ -23,48 +28,28 @@ class Iserver:
                 json.dump([], f,
                           indent=4,
                           separators=(',', ': '))
-
-    def write_file(self, *args, **kwargs):
-        listObj = []
-        try:
-            with open(self.File) as file:
-                listObj:list = json.load(file)
-            listObj.append(kwargs)
-            with open(self.File, 'w') as json_file:
-                json.dump(listObj, json_file,
-                          indent=4,
-                          separators=(',', ': '))
-        except:
-            pass
-        self.mc+=1
-
-    def read_file_log(self, f=0, to=19) -> list[str]:
-        listObj = []
-        try:
-            with open(self.File) as file:
-                listObj = json.load(file)
-                listObj = listObj[::-1]
-                length = len(listObj)
-            if length > to:
-                return listObj[length-19:length], length-19, length
-            return listObj[f:to], f, to
-        except:
-            return [], f, to
-
-    def connect_to_TCP(self):
+        self.observs:list[function]=[]
+        
+    def write_file(self, *args, **kwargs)->None:
         pass
 
-    def close_connection_TCP(self):
+    def read_file_log(self, limitFrom=0, limitTo=19) -> list[str]:
         pass
 
-    def registar(self,req:IRequest,connection):
+    def connect_to_TCP(self)->None:
+        pass
+
+    def close_connection_TCP(self)->None:
+        pass
+
+    def registar(self,req:IRequest,connection)->bool:
         pass
     
-    def login(self,req:IRequest,connection):
+    def login(self,req:IRequest,connection)->bool:
         pass
     
-    def send_msg(self:IRequest,req,connection):
+    def send_msg(self:IRequest,req,connection)->bool:
         pass
         
-    def send_msg_to_all(self:IRequest,req,connection):
+    def send_msg_to_all(self:IRequest,req,connection)->bool:
         pass

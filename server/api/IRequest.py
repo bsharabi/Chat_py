@@ -17,7 +17,7 @@ class IRequest:
     
     def get_req(self):
         '''
-        
+        return request from header
         
         '''
         pass
@@ -38,6 +38,9 @@ class IRequest:
         pass
 
     def get_toClient(self):
+        pass
+    
+    def get_file_name(self):
         pass
 
     def __str__(self):

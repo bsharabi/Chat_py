@@ -1,22 +1,25 @@
 import sys
+from threading import Thread
 sys.path.append("./Client")
-from api.IResponse import IResponse
-from socket import *
-import json
+from os import path
+from datetime import datetime
+import os
+from .Validation import *
 from select import *
 import select
-from  .Validation import *
-import os
-from datetime import datetime
-from os import path
-from api.IClient import *
-from api.IFriends import IFriend
+import json
+from socket import *
+from api.IResponse import IResponse
 from api.IRequest import IRequest
+from api.IFriends import IFriend
+from api.IClient import *
+from threading import Lock
 
 class Request(IRequest):
     def __init__(self, header: dict = {}, body: dict = {}, req: str = "", fileName: str = "", user: str = "", password: str = "", origin: str = "", toClient: str = "", *args, **kwargs) -> None:
-        super().__init__(header,body,req,fileName,user,password,origin,toClient,*args,**kwargs)
-        
+        super().__init__(header, body, req, fileName, user,
+                         password, origin, toClient, *args, **kwargs)
+
     def get_req(self):
         return self.header.get("req")
 
@@ -42,6 +45,8 @@ class Request(IRequest):
 
     def __str__(self):
         return json.dumps({"header": self.header, "body": self.body, "origin": self.origin})
+
+LOCK = Lock()
 
 class Response(IResponse):
 
@@ -72,7 +77,7 @@ class Response(IResponse):
 class Friend(IFriend):
 
     def __init__(self, name: str, isConnect: bool, path_folder: str) -> None:
-        super().__init__(name,isConnect,path_folder)
+        super().__init__(name, isConnect, path_folder)
 
     def write(self, *args, **kwargs):
         filename = self.msg_file if args[0] == "msg"else self.log_file
@@ -127,7 +132,7 @@ class Client(Iclient):
 
     def load_options(self):
         self.options["udpateFriend"] = self.udpateFriend
-        self.options["brodcast"] = self.brodcast
+        self.options["brodcastMsg"] = self.brodcast
         self.options["msg"] = self.get_msg
 
     def connect_to_TCP(self) -> bool:
@@ -171,32 +176,40 @@ class Client(Iclient):
             return False
 
     def create_data_directory(self):
-        self.path = "./client/data/"+self.name
+        self.path = "./Client/data/"+self.name
         if not path.isdir(self.path):
-            os.mkdir(path.join("./client/data", self.name))
+            os.mkdir(path.join("./Client/data", self.name))
 
     def create_data_directory_friends(self, data: dict):
-        friends_list = data.get("listOnline")
-        friends_list.remove(self.name)
+        with LOCK:
+            friends_list: list[str] = data.get("listOnline")
+            friends_list.remove(self.name)
+            friends_list.append("Friends Group")
+            friend_group_online = False
+            if len(self.friends_list) == 0:
+                self.friends_list: list[str] = os.listdir(path=self.path)
 
-        if len(self.friends_list) == 0:
-            self.friends_list: list[str] = os.listdir(path=self.path)
+            for name in self.friends_list:
+                path_folder = path.join(self.path, name)
+                if name in friends_list:
+                    friends_list.remove(name)
+                    self.friends[name] = Friend(name, True, path_folder)
+                    if name !="Friends Group":
+                        friend_group_online = True 
+                    continue
+                self.friends[name] = Friend(name, False, path_folder)
 
-        for name in self.friends_list:
-            path_folder = path.join(self.path, name)
-            if name in friends_list:
-                friends_list.remove(name)
-                self.friends[name] = Friend(name, True, path_folder)
-                continue
-            self.friends[name] = Friend(name, False, path_folder)
+            for friend in friends_list:
+                path_folder = path.join(self.path, friend)
+                if not os.path.isdir(path_folder):
+                    os.mkdir(path_folder)
+                self.friends[friend] = Friend(friend, True, path_folder)
+                friend_group_online = True
 
-        for friend in friends_list:
-            path_folder = path.join(self.path, friend)
-            os.mkdir(path_folder)
-            self.friends[friend] = Friend(friend, True, path_folder)
+            self.friends["Friends Group"].isConnect = friend_group_online
 
-        self.friends = {k: v for k, v in sorted(
-            self.friends.items(), key=lambda item: not item[1].isConnect)}
+            self.friends = {k: v for k, v in sorted(
+                self.friends.items(), key=lambda item: not item[1].isConnect)}
 
     def login(self, req: str = "", password: str = "", origin: str = "", *args, **kwargs):
         request = Request(header={"req": req}, user=self.name,
@@ -250,33 +263,43 @@ class Client(Iclient):
     def readUDP(self, connection):
         pass
 
-    def server_response(self, connection):
+    def server_response(self, connection) -> None:
         try:
             response_string = connection.recv(4096).decode()
-        except:
-            pass
-        if response_string:
-            print(f"Got response\"{response_string}\"\n")
-            response_dict = json.loads(response_string)
-            response_object = Response(**response_dict)
-            res = response_object.get_res()
-            self.options[res](response_object)
+            if response_string:
+                print(f"Got response\"{response_string}\"\n")
+                response_dict = json.loads(response_string)
+                response_object = Response(**response_dict)
+                res = response_object.get_res()
+                self.options[res](response_object)
 
-    def udpateFriend(self, res: Response):
-        self.mc += 1
+        except Exception as e:
+            print(e)
+
+    def udpateFriend(self, res: Response) -> None:
         self.create_data_directory_friends(res.get_data())
-
-    def brodcast(self):
-        pass
-
-    def get_msg(self, res: Response):
-        self.mc += 1
+        self.mc+=1
+            
+    def brodcast(self, res: IResponse) -> None:
+        body = res.get_body()
+        data: dict = res.get_data()
+        nameFriend = res.get_body().get("to")
+        msg = data.get("msg")
+        dateT = str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        self.friends.get(nameFriend).write(
+            "msg", msg=msg, fromClient=nameFriend, toClient=self.name, date=dateT)
+        self.mc+=1
+        
+    def get_msg(self, res: IResponse):
         body = res.get_body()
         data: dict = res.get_data()
         msg = data.get("msg")
         form: dict = body.get("form")
         nameFriend = form.get("user")
-        self.friends.get(nameFriend).write("msg", msg=msg)
+        dateT = str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        self.friends.get(nameFriend).write(
+            "msg", msg=msg, fromClient=nameFriend, toClient=self.name, date=dateT)
+        self.mc+=1
 
     def request(self, req: str = "", fileName: str = "",  password: str = "", origin: str = "", toClient: str = "", *args, **kwargs):
         request = Request(req=req, fileName=fileName, user=self.name, password=password,
@@ -292,14 +315,18 @@ class Client(Iclient):
         inputs = [self._socket_TCP, self._socket_UDP]
         outputs = []
         while self.connectedTCP:
-            readable, writable, exceptional = select.select(
-                inputs, outputs, inputs, 0.1)
-            for s in readable:
-                s: socket
-                if s.proto == self._socket_TCP.proto:
-                    self.readTCP(s)
-                elif s.proto == self._socket_UDP.proto:
-                    self.readUDP(s)
+            try:
+                readable, writable, exceptional = select.select(
+                    inputs, outputs, inputs, 0.1)
+                for s in readable:
+                    s: socket
+                    if s.proto == self._socket_TCP.proto:
+                       
+                        self.readTCP(s)
+                    elif s.proto == self._socket_UDP.proto:
+                        self.readUDP(s)
+            except Exception as e:
+                print(e)
 
     def __del__(self):
         self.connectedTCP = False
