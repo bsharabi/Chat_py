@@ -33,7 +33,7 @@ Version py 3.9.7
 # Clone the repository
 $ git clone https://github.com/bsharabi/Chat_py.git
 # Go into the repository
-$ cd Server
+$ cd Chat_py
 # Open the terminal on Windows
 $ Run "python3.9 Controller <host> <port>"
 # Open the terminal on Linux
@@ -56,7 +56,7 @@ $ Run "python3/3.9 Controller"
 # Clone the repository
 $ git clone https://github.com/bsharabi/Chat_py.git
 # Go into the repository
-$ cd Client
+$ cd Chat_py
 # Open the terminal on Windows
 $ Run "python3.9 Controller.py"
 # Open the terminal on Linux

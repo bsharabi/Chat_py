@@ -2,7 +2,6 @@ import sys
 sys.path.append("Server")
 sys.path.append("./Server")
 sys.path.append(".")
-
 import select
 from socket import *
 from os.path import isfile, join
@@ -15,6 +14,7 @@ from Server.api.IResponse import *
 import threading
 from Server.api.IClient import IClient
 from Server.api.IServer import *
+from .run_server import *
 
 
 class Request(IRequest):
@@ -51,7 +51,6 @@ class Request(IRequest):
     def __str__(self):
         return json.dumps({"header": self.header, "body": self.body, "origin": self.origin})
 
-
 class Response(IResponse):
 
     def __init__(self, header: dict = {}, body: dict = {}, res: str = "", origin: str = "", *args, **kwargs) -> None:
@@ -72,7 +71,6 @@ class Response(IResponse):
     def __str__(self):
         return json.dumps({"header": self.header, "body": self.body, "origin": self.origin})
 
-
 class Client(IClient):
 
     def __init__(self, name: str, connection=None) -> None:
@@ -83,7 +81,6 @@ class Client(IClient):
 
     def __repr__(self) -> str:
         return "{" + f"\"name\":\"{self.name}\",\"online\":\"{self.isConnect}\""+"}"
-
 
 class TCPServer(Iserver):
 
@@ -108,7 +105,6 @@ class TCPServer(Iserver):
         self.optionsReq["sendMsg"] = self.send_msg
         self.optionsReq["sendMsgALL"] = self.send_msg_to_all
         self.optionsReq["getFilesList"] = self.get_files_list
-        self.optionsReq["getConnectToUDP"] = self.request_to_connectUDP
         self.optionsReq["getFile"] = self.get_file
 
    # --------------------- private functionv--------------------
@@ -380,9 +376,16 @@ class TCPServer(Iserver):
             fileName = req.get_file_name()
             file_exist = os.path.isfile(path.join(mypath, fileName))
             if file_exist:
-                response = Response(res="downloadFile",flag=1 )
-                self.send_response(connection, response)
-                return True
+                response = Response(res="downloadFile",flag=1,file_name=fileName,packet_count="" )
+                ans,count=Server_Start(response)
+                response.get_data()["packet_count"]=str(count)
+                if ans:                  
+                    self.send_response(connection, response)
+                    return True
+                else:
+                    response = Response(res="Server Ex", flag=0)
+                    self.send_response(connection, response)
+                    return False
             else:
                 response = Response(res="D-downloadFile", flag=0)
                 self.send_response(connection, response)
@@ -391,9 +394,6 @@ class TCPServer(Iserver):
         except Exception as e:
             print(e)
         return False
-
-    def request_to_connectUDP(self, req: IRequest, connection):
-        return self.connect_to_UDP()
 
     def __call__(self) -> None:
         inputs = [self.serverTCP, self.serverUDP, ]

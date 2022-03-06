@@ -1,3 +1,4 @@
+from fileinput import filename
 import sys
 sys.path.append("./Client")
 from threading import Lock
@@ -14,7 +15,8 @@ from api.IClient import Iclient
 from api.IFriends import IFriend
 from api.IRequest import IRequest
 from api.IResponse import IResponse
-
+from .run_client import Client_Start
+LOCK = Lock()
 
 class Request(IRequest):
     def __init__(self, header: dict = {}, body: dict = {}, req: str = "", fileName: str = "", user: str = "", password: str = "", origin: str = "", toClient: str = "", *args, **kwargs) -> None:
@@ -47,10 +49,6 @@ class Request(IRequest):
     def __str__(self):
         return json.dumps({"header": self.header, "body": self.body, "origin": self.origin})
 
-
-LOCK = Lock()
-
-
 class Response(IResponse):
 
     def __init__(self, header: dict = {}, body: dict = {}, res: str = "", origin: str = "", *args, **kwargs) -> None:
@@ -76,7 +74,6 @@ class Response(IResponse):
 
     def __str__(self):
         return json.dumps({"header": self.header, "body": self.body, "origin": self.origin})
-
 
 class Friend(IFriend):
 
@@ -116,7 +113,6 @@ class Friend(IFriend):
     def __repr__(self):
         return f"{self.name} {self.isConnect}"
 
-
 class Client(Iclient):
 
     def __init__(self, id: int = 1, name: str = f"user", port: int = 3000, host: str = "localhost") -> None:
@@ -133,6 +129,8 @@ class Client(Iclient):
         self._socket_TCP = socket(AF_INET, SOCK_STREAM)
         self._socket_UDP = socket(AF_INET, SOCK_DGRAM)
         self.options: dict[str, function] = {}
+        self.download_file_count_pack=0
+
         self.load_options()
 
     def load_options(self):
@@ -141,6 +139,8 @@ class Client(Iclient):
         self.options["msg"] = self.get_msg
         self.options["fileList"] = self.set_file_list
         self.options["downloadFile"] = self.download_file
+        self.options["D-downloadFile"] = self.d_download_file
+        self.options["Server Ex"] = self.err_download_file
 
     def connect_to_TCP(self) -> bool:
         try:
@@ -320,18 +320,25 @@ class Client(Iclient):
         self.friends.get(nameFriend).write(
             "msg", msg=msg, fromClient=nameFriend, toClient=self.name, date=dateT)
         self.mc += 1
-
+    def d_download_file(self,res:IResponse):
+        pass
+    
+    def err_download_file(self,res:IResponse):
+        pass
+    
     def download_file(self, res: IResponse):
         try:
             downloadFlag = res.get_data()["flag"]
+            
             if downloadFlag == 1:
-                if self.connect_to_UDP():
-                    print("success")
-                    self._socket_UDP.sendto(
-                        "sss".encode(), (self.host, self.port))
+                file_name=res.get_data()["file_name"]
+                count_p=res.get_data()["packet_count"]
+                self.download_file_count_pack=int(count_p)
+                self.download_start=True
+                Client_Start(file_name,self)
+            
         except Exception as e:
-            print(e)
-        pass
+            print(e)        
 
     def request(self, req: str = "", fileName: str = "",  password: str = "", origin: str = "", toClient: str = "", *args, **kwargs):
         request = Request(req=req, fileName=fileName, user=self.name, password=password,

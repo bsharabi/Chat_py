@@ -17,6 +17,8 @@ class Iclient:
         if not path.isdir("./Client/data"):
             os.mkdir(self.path)
         self.file_list:list[str]=[]
+        self.download_file_count_pack=0
+        self.download_start=False
 
 
 
