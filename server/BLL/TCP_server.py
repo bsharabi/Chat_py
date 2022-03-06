@@ -1,17 +1,20 @@
 import sys
+sys.path.append("Server")
 sys.path.append("./Server")
+sys.path.append(".")
+
 import select
 from socket import *
 from os.path import isfile, join
 from os import listdir
 import json
-from api.IClient import IClient
-from api.IServer import *
 from DAL.DataBase import mongodb
 from datetime import datetime
-from api.IRequest import *
-from api.IResponse import *
+from Server.api.IRequest import *
+from Server.api.IResponse import *
 import threading
+from Server.api.IClient import IClient
+from Server.api.IServer import *
 
 
 class Request(IRequest):
@@ -100,7 +103,7 @@ class TCPServer(Iserver):
         self.load_options()
 
     def load_options(self):
-        self.optionsReq["registar"] = self.register
+        self.optionsReq["register"] = self.register
         self.optionsReq["login"] = self.login
         self.optionsReq["sendMsg"] = self.send_msg
         self.optionsReq["sendMsgALL"] = self.send_msg_to_all

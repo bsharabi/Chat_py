@@ -369,17 +369,17 @@ class ClientLogin(GuiController):
         passPanel = Rectangle((100, 200), (200, 32))
         self.passField = InputField(textLabel, passPanel)
 
-        submitLabel = Label("Registar", self.font)
+        submitLabel = Label("Register", self.font)
         submitPanel = Rectangle((100, 250), (100, 32))
 
-        self.registarButton = Button(
+        self.registerButton = Button(
             submitPanel, submitLabel, self.palette["green"], self.palette["light-green"], self.palette["white"])
 
         submitLabel = Label("Login", self.font)
         submitPanel = Rectangle((220, 250), (100, 32))
         self.submitButton = Button(
             submitPanel, submitLabel, self.palette["green"], self.palette["light-green"], self.palette["white"])
-        self.registar = False
+        self.register = False
         self.ready = False
 
     def handleClick(self):
@@ -389,8 +389,8 @@ class ClientLogin(GuiController):
 
         if self.submitButton.mouse_hover():
             self.ready = True
-        if self.registarButton.mouse_hover():
-            self.registar = True
+        if self.registerButton.mouse_hover():
+            self.register = True
 
     def handleButtonPress(self, event):
         self.err_msg.active = False
@@ -410,14 +410,14 @@ class ClientLogin(GuiController):
                 return True
             self.err_msg.text = msg
             self.err_msg.active = True
-        elif self.registar:
+        elif self.register:
             Succeeded, msg = self.client.register(
-                "registar", name=Name, password=Password)
+                "register", name=Name, password=Password)
             self.err_msg.text = msg
             self.err_msg.active = True
 
         self.ready = False
-        self.registar = False
+        self.register = False
         return False
 
     def getNextViewController(self):
@@ -441,7 +441,7 @@ class ClientLogin(GuiController):
 
         self.submitButton.draw_button(self.screen, True)
 
-        self.registarButton.draw_button(self.screen, True)
+        self.registerButton.draw_button(self.screen, True)
 
         x = self.screen.get_rect().center[0]
         self.err_msg.draw_label(self.screen, (x, 25), (0, 0, 0), True)

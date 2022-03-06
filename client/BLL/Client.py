@@ -1,19 +1,20 @@
 import sys
-from threading import Thread
 sys.path.append("./Client")
-from os import path
-from datetime import datetime
-import os
-from .Validation import *
+from threading import Lock
+from socket import *
+import json
 from select import *
 import select
-import json
-from socket import *
-from api.IResponse import IResponse
-from api.IRequest import IRequest
+from .Validation import *
+import os
+from datetime import datetime
+from os import path
+from threading import Thread
+from api.IClient import Iclient
 from api.IFriends import IFriend
-from api.IClient import *
-from threading import Lock
+from api.IRequest import IRequest
+from api.IResponse import IResponse
+
 
 class Request(IRequest):
     def __init__(self, header: dict = {}, body: dict = {}, req: str = "", fileName: str = "", user: str = "", password: str = "", origin: str = "", toClient: str = "", *args, **kwargs) -> None:
@@ -46,7 +47,9 @@ class Request(IRequest):
     def __str__(self):
         return json.dumps({"header": self.header, "body": self.body, "origin": self.origin})
 
+
 LOCK = Lock()
+
 
 class Response(IResponse):
 
@@ -73,6 +76,7 @@ class Response(IResponse):
 
     def __str__(self):
         return json.dumps({"header": self.header, "body": self.body, "origin": self.origin})
+
 
 class Friend(IFriend):
 
@@ -112,6 +116,7 @@ class Friend(IFriend):
     def __repr__(self):
         return f"{self.name} {self.isConnect}"
 
+
 class Client(Iclient):
 
     def __init__(self, id: int = 1, name: str = f"user", port: int = 3000, host: str = "localhost") -> None:
@@ -124,7 +129,7 @@ class Client(Iclient):
         self.host = host
         self.path = ""
         self.friends_list = []
-        self.friends: dict[str, Friend] = {}
+        self.friends: dict[str, IFriend] = {}
         self._socket_TCP = socket(AF_INET, SOCK_STREAM)
         self._socket_UDP = socket(AF_INET, SOCK_DGRAM)
         self.options: dict[str, function] = {}
@@ -176,10 +181,14 @@ class Client(Iclient):
             print("The close connection failed (UDP)")
             return False
 
-    def create_data_directory(self):
-        self.path = "./Client/data/"+self.name
+    def create_data_directory(self) -> bool:
+        _path=path.join(os.getcwd(),"Client/data")
+        if not path.isdir(_path):
+            os.mkdir(_path)
+        self.path = path.join(_path,self.name)
         if not path.isdir(self.path):
-            os.mkdir(path.join("./Client/data", self.name))
+            os.mkdir(self.path)
+            return True
 
     def create_data_directory_friends(self, data: dict):
         with LOCK:
@@ -195,8 +204,8 @@ class Client(Iclient):
                 if name in friends_list:
                     friends_list.remove(name)
                     self.friends[name] = Friend(name, True, path_folder)
-                    if name !="Friends Group":
-                        friend_group_online = True 
+                    if name != "Friends Group":
+                        friend_group_online = True
                     continue
                 self.friends[name] = Friend(name, False, path_folder)
 
@@ -212,8 +221,9 @@ class Client(Iclient):
             self.friends = {k: v for k, v in sorted(
                 self.friends.items(), key=lambda item: not item[1].isConnect)}
 
-    def login(self, req: str = "", password: str = "", origin: str = "", *args, **kwargs):
-        request = Request(header={"req": req}, user=self.name,
+    def login(self, req: str = "", password: str = "", user:str="",origin: str = "", *args, **kwargs) -> tuple[bool, str]:
+        user=self.name if user=="" else user
+        request = Request(header={"req": req}, user=user,
                           password=password, origin=origin, *args, **kwargs)
         try:
             self._socket_TCP.send(request.__str__().encode())
@@ -236,8 +246,10 @@ class Client(Iclient):
             return False, "IoException"
         return False, response_object.get_res()
 
-    def register(self, req: str = "", password: str = "", origin: str = "", *args, **kwargs):
-        request = Request(header={"req": req}, user=self.name, password=password,
+    def register(self, req: str = "", password: str = "",user:str="", origin: str = "", *args, **kwargs) -> tuple[bool, str]:
+        user=self.name if user=="" else user
+
+        request = Request(header={"req": req}, user=user, password=password,
                           origin=origin, *args, **kwargs)
         try:
             self._socket_TCP.send(request.__str__().encode())
@@ -261,9 +273,9 @@ class Client(Iclient):
         if connection is self._socket_TCP:
             self.server_response(connection)
 
-    def readUDP(self, connection:socket):
-        data,address=connection.recvfrom(4096)
-        print(data,address)
+    def readUDP(self, connection: socket):
+        data, address = connection.recvfrom(4096)
+        print(data, address)
 
     def server_response(self, connection) -> None:
         try:
@@ -280,8 +292,8 @@ class Client(Iclient):
 
     def udpateFriend(self, res: Response) -> None:
         self.create_data_directory_friends(res.get_data())
-        self.mc+=1
-            
+        self.mc += 1
+
     def brodcast(self, res: IResponse) -> None:
         body = res.get_body()
         data: dict = res.get_data()
@@ -290,15 +302,15 @@ class Client(Iclient):
         dateT = str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         self.friends.get(nameFriend).write(
             "msg", msg=msg, fromClient=nameFriend, toClient=self.name, date=dateT)
-        self.mc+=1
-     
-    def set_file_list(self,res: IResponse)->None:
+        self.mc += 1
+
+    def set_file_list(self, res: IResponse) -> None:
         try:
-            self.file_list=res.get_data()["filesList"]
+            self.file_list = res.get_data()["filesList"]
         except Exception as e:
             print(e)
-        
-    def get_msg(self, res: IResponse)->None:
+
+    def get_msg(self, res: IResponse) -> None:
         body = res.get_body()
         data: dict = res.get_data()
         msg = data.get("msg")
@@ -307,19 +319,20 @@ class Client(Iclient):
         dateT = str(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         self.friends.get(nameFriend).write(
             "msg", msg=msg, fromClient=nameFriend, toClient=self.name, date=dateT)
-        self.mc+=1
+        self.mc += 1
 
     def download_file(self, res: IResponse):
         try:
-            downloadFlag=res.get_data()["flag"]
-            if downloadFlag==1:
+            downloadFlag = res.get_data()["flag"]
+            if downloadFlag == 1:
                 if self.connect_to_UDP():
                     print("success")
-                    self._socket_UDP.sendto("sss".encode(),(self.host,self.port))
+                    self._socket_UDP.sendto(
+                        "sss".encode(), (self.host, self.port))
         except Exception as e:
             print(e)
         pass
-    
+
     def request(self, req: str = "", fileName: str = "",  password: str = "", origin: str = "", toClient: str = "", *args, **kwargs):
         request = Request(req=req, fileName=fileName, user=self.name, password=password,
                           origin=origin, toClient=toClient, *args, **kwargs)
