@@ -1,0 +1,48 @@
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.
+Reliable Data Transfer (RDT) 1.0
+Difficulty Level : Basic
+Last Updated : 12 Sep, 2019
+RDT 1.0 works on completely (perfectly) reliable channel. For building a Reliable Data Transfer of protocol over a layer we firstly take the simple case of transferring data over a completely reliable channel, the RDT 1.0 is a trivial protocol. This transfer of data is shown by using FSM (finite state machine) which consist of FSM of sender and receiver separately. In RDT 1.0 there is only one state each for sender and receiver, here arrow indicates the transition of protocol from one state to another.

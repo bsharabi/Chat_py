@@ -2,7 +2,7 @@ from os import path
 import os
 from .IFriends import IFriend
 import threading
-from IResponse import IResponse
+from .IResponse import IResponse
 
 
 class Iclient:

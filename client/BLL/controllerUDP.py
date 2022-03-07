@@ -26,6 +26,7 @@ def Client_Start(file_name,count):
         
 
         client.thread.start()
+        client.open()
 
 
     except SocketException as e:

@@ -1,0 +1,57 @@
+RDT involves sender-side and receiver-side sequences and variables to validate, acknowledge, and retransmit data when necessary. The goal of RDT protocols is to provide network and link layer service such that application and transport layer services can make guarantees about data delivery.
+
+TL;DR: RDP guarantees reliable data delivery service across an unreliable channel. The most common implementation is TCP/IP protocol used for the majority of internet data transfer.
+
+Introduction
+Reliable Data Transfer Protocols must address the two primary concerns of data loss and data corruption. In network communications, these types of errors generally occur on the physical network hardware during buffering, propagation, and transmission actions.
+
+To address these concerns, senders and receivers need a way to communicate indirectly with respect to the receipt and validation of data being transmitted. In such cases where data has been lost or corrupted, RDT protocols dictate that data should be re-transmitted. At the most basic level, this introduces another concern of duplicate data into the mix.
+
+Data loss and corruption are the two primary concerns RDT seeks to address. The concern of duplicate data only arises through actions taken to address these first two concerns. As such, considering the issues of loss and corruption is a sensible place to begin considering the underlying function of RDT.
+
+Four Functions of Reliable Data Transfer
+Implementing RDP as a transport layer service requires several moving parts amidst several checkpoints, so to speak. These “checkpoints” are points during data transmission where the following actions may occur:
+
+receive data
+encapsulate data prior to sending
+un-encapsulate data upon receipt
+send data
+It’s important to note these four points of RDT function can be used to describe communications in either direction on a network. For example, from Host A sending a message to Host B:
+
+1. Host A RDT receives data from layer above
+2. Host A RDT encapsulates data
+3. Host A RDT sends data to Host B
+4. Host B RDT receives data from layer below
+5. Host B RDT un-encapsulates data
+6. Host B RDT passes data to layer above
+By contrast, the same process would occur in reverse should Host B send a message to Host A (symmetrical process):
+
+1. Host B RDT receives data from layer above
+2. Host B RDT encapsulates data
+3. Host B RDT sends data to Host A
+4. Host A RDT receives data from layer below
+5. Host A RDT un-encapsulates data
+6. Host A RDT passes data to layer above
+Features of Reliable Data Transfer Protocol
+RDP/RDT utilizes several common features among varying implementations. These features help assure network engineers that the guarantees made by RDP/RDT standards are available and predictably available. Some of these features are basic while others involve much more technical complexity. Below are some of the most common features of RDP/RDT.
+
+Acknowledgment (ACK)
+When a network system sends data to another network system, RDT suggests that some measures be taken to ensure that data arrived successfully. One basic approach to accomplish this is to incorporate a system of acknowledgment such that a receiver can inform the sender “yes, I received your message.”
+
+How does one send such an acknowledgment though? The addition of an extra bit in the data segment being transmitted accomplishes just this. A receiver can send the sender a message, now with an 1 indicating positive acknowledgment (“message received, send next message”) or 0 indicating negative acknowledgment (“the last message was corrupt, please re-send.”)
+
+Protocols such as Transmission Control Protocol (TCP) encapsulate data integrated with headers, with one header field being reserved specifically for these types of acknowledgments (ACKs). The ACK system informs a sender of data loss or corruption when a negative ACK (NAK) is received, or duplicate ACKs are received.
+
+Timeouts
+What happens is a receiver never receives a packet to ACK or NAK? Such could be the case resulting from packet loss across the network. In this scenario, a sender may be stuck waiting indefinitely for an ACK/NAK that will never come.
+
+To mitigate this case, RDT requires the introduction of a sender-side timer variable. When a sender transmits a data segment it starts a timer. If the timer reaches a threshold before an ACK/NAK is received, the sender retransmits the data.
+
+The addition of a timer variable helps deal with data loss but there’s still one very limiting factor: a sender is limited to sending one data segment, waiting on an ACK/NAK/timeout, and then sending or retransmitting another data segment.
+
+To better utilize available network bandwidth there needs to be a system of sending multiple data segments while keeping track of which ones are received, corrupted, or lost along the way.
+
+Congestion Control
+Reliable Data Protocols operate in part by detecting degraded network conditions and acting accordingly. Timeout intervals help detect these types of conditions but don’t act to address them explicitly.
+
+End-to-End: No explicit support is provided by the network layer; end systems must rely on inferred signals indicating congestion control such as packet loss or increasing RTT times.
