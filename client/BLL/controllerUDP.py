@@ -1,21 +1,17 @@
 import os
 
-from api.IClient import Iclient
-
-from ._client_functions import Client
-from ._client_functions import FileException
-from ._client_functions import SocketException
-from ._client_functions import WindowSizeException
-from ._shared_functions import *
+from .UDP_function import Client,FileException,SocketException,WindowSizeException
+from .Setting_Simulation import *
 
 def Client_Start(file_name,count):
-    client_settings = read_args(workingDir + "/Client/BLL/client.in")
-
-    server_ip = client_settings['server_ip']
-    server_port = int(client_settings['server_port'])
+    '''
+    A function that initializes the client server to receive a file
+    '''
+    server_ip = "127.0.0.1"
+    server_port = 531
     client_ip = "127.0.0.1"
-    client_port = int(client_settings['client_port'])
-    window_size = int(client_settings['window_size'])
+    client_port = 800
+    window_size = 12
     seq_num_bits = 16
     timeout = 10
     client_data_folder = os.path.join(os.getcwd(), "Client/downloads")
@@ -31,7 +27,6 @@ def Client_Start(file_name,count):
 
         client.thread.start()
 
-        # client.close()
 
     except SocketException as e:
         print(e)

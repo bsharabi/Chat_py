@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append("Server")
 sys.path.append("./Server")
 sys.path.append(".")
@@ -9,13 +10,12 @@ from os import listdir
 import json
 from DAL.DataBase import mongodb
 from datetime import datetime
+import threading
 from Server.api.IRequest import *
 from Server.api.IResponse import *
-import threading
 from Server.api.IClient import IClient
 from Server.api.IServer import *
-from .run_server import *
-
+from .ServerUDP import *
 
 class Request(IRequest):
     def __init__(self, header: dict = {}, body: dict = {}, req: str = "", fileName: str = "", user: str = "", password: str = "", origin: str = "", toClient: str = "", *args, **kwargs) -> None:
@@ -108,6 +108,7 @@ class TCPServer(Iserver):
         self.optionsReq["getFile"] = self.get_file
 
    # --------------------- private functionv--------------------
+   
     def connect_to_TCP(self) -> bool:
         try:
             self.serverTCP.bind((self.host, self.port))
@@ -182,6 +183,13 @@ class TCPServer(Iserver):
             return [], 0
 
     def client_registration(self, *args, **kwargs) -> IResponse:
+        '''
+        A function that handles the creation request of a new user to the server,
+        The test is performed in front of a remote information server.       
+        @ kwargs {UserName:name,UserPassword:password}
+        Handles multiple users
+        @return IResponse 
+        '''
         succ, msg = self.db.user_exits(*args, **kwargs)
         if (succ, msg) == (False, "D-exist"):
             if self.db.create_user(*args, **kwargs):
@@ -190,7 +198,14 @@ class TCPServer(Iserver):
                 return Response(res="error")
         return Response(res=msg)
 
-    def client_login_req(self, connection, *args, **kwargs) -> tuple[bool, IResponse]:
+    def client_login_req(self, connection:socket, *args, **kwargs) -> tuple[bool, IResponse]:
+        '''
+        A function that handles a user's connection request to a server,
+        The test is performed in front of a remote information server.
+        @param connection
+        @ kwargs {UserName:name,UserPassword:password}
+        @return boolean and IResponse
+        '''
         name = kwargs["UserName"]
         if name in self.clients:
             return False, Response(res="Client connected", body={"args": [], "data": {"listOnline": []}})
@@ -201,13 +216,25 @@ class TCPServer(Iserver):
             return True, Response(res="Success", body={"args": [], "data": {"listOnline": listOnline}})
         return False, Response(res="Failure", body={"args": [], "data": {"listOnline": []}})
 
-    def client_online(self) -> list:
+    def client_online(self) -> list[IClient]:
+        '''
+        The function goes through all the logged in users and creates a list
+        @return list 
+        '''
         try:
             return [c for c in self.clients.keys()]
         except:
             return []
 
-    def update_connections(self, inputs, outputs, exceptional) -> None:
+    def update_connections(self, inputs:list[socket], outputs:list[socket], exceptional:list[socket]) -> None:
+        '''
+        The function checks for failed connections on the server and should be deleted.
+        If so, it sends a message to all users informing them that someone has logged out "udpateFriend"
+        @param input
+        @param output
+        @param exceptional
+        @return None
+        '''
         er = "Anonymous client"
         change = False
         for connection in exceptional:
@@ -233,34 +260,65 @@ class TCPServer(Iserver):
             ressponse = Response(res="udpateFriend", body=body)
             self.brodcast(ressponse)
 
-    def client_byConnection(self, connection) -> IClient:
+    def client_byConnection(self, connection:socket) -> IClient:
+        '''
+        The function gets a connection and returns a client
+        if client Exist return client else return None 
+        @param connection: client's connection 
+        '''
         for name, client in self.clients.items():
             if client == connection:
                 return client
         return None
 
-    def brodcast(self, res: IResponse, connection=None) -> None:
+    def brodcast(self, res: IResponse, connection:socket=None) -> bool:
+        '''
+        The function sends messages to all connected clients without the connection of the sending client 
+        @param res: The response format for other client
+        @param connection: connection of the sending client 
+        @return None
+        tuohti
+        @return: True if succ False o.w.
+        '''
         try:
             for client in self.clients.values():
                 if client.connection != connection:
                     client.connection.send(res.__str__().encode())
+                    
+            return True
         except Exception as e:
             print("Exception ", e)
+        return False
 
     def connectDB(self) -> bool:
+        '''
+        The function handles the connection to DB 
+        @return: True if succ False o.w.
+        '''
         try:
             return self.db.connect_db()
         except:
             return False
 
-    def Connection_byName(self, name) -> IClient:
+    def Connection_byName(self, name:str) -> IClient:
+        '''
+        The function gets a name and returns a client
+        if client Exist return client else return None 
+        @param name:client's name 
+        '''
         try:
             return self.clients[name].connection
-        except:
+        except Exception as e:
+            print(e)
             print("D-exist")
         return None
 
     def send_message_by_name(self, req: IRequest) -> bool:
+        '''
+        A function that handles the transfer of messages between clients.
+        @param request: request to send msg from client-1 to client-2
+        @return: True if the send Succ False o.w. 
+        '''
         client_name = req.get_toClient()
         connection = self.Connection_byName(client_name)
         if connection:
@@ -270,7 +328,13 @@ class TCPServer(Iserver):
             print("Connection does not exist")
             return False
 
-    def send_response(self, connection, res: IResponse) -> bool:
+    def send_response(self, connection:socket, res: IResponse) -> bool:
+        '''
+        The function sends a response to the client
+        @param connection: client's connection 
+        @param response:   IResponse format
+        @return: True if the send success False o.w.
+        '''
         try:
             connection.send(res.__str__().encode())
             print(f"Send success")
@@ -279,14 +343,28 @@ class TCPServer(Iserver):
             print("Send faild ", e)
             return False
 
-    def readTCP(self, connection, inputs: list, exceptional: list) -> None:
-
+    def readTCP(self, connection:socket, inputs: list, exceptional: list[socket]) -> None:
+        '''
+        The function selects between client requests and server requests.
+        This server request is a request to connect to the server.
+        Client request is a request for service from the server.
+        @param connection:client connection
+        @param input :list of existing connections
+        @param exceptional :problematic connections on the server
+        @return None
+        '''
         if connection is self.serverTCP:
             self.server_req(connection, inputs)
         else:
             self.client_req(connection, exceptional)
 
-    def server_req(self, connection, inputs: list) -> None:
+    def server_req(self, connection:socket, inputs: list) -> None:
+        '''
+        The function receives a new client to the server and puts it in the list of existing clients that are still connected
+        @param connection:client connection
+        @param input :list of existing connections
+        @return None
+        '''
         now = datetime.now()
         try:
             client, client_address = connection.accept()
@@ -295,10 +373,21 @@ class TCPServer(Iserver):
             self.clientNumber += 1
             self.write_file_log(log=str(
                 now)+f" Request connect from  {client_address} -> client{self.clientNumber}")
-        except:
-            pass
+        except Exception as e:
+            print(e)
 
-    def client_req(self, connection, exceptional) -> None:
+    def client_req(self, connection:socket, exceptional:list[socket]) -> None:
+        '''
+        The function receives a client request to perform a service between it and the server.
+        @param connection:client connection
+        @param exceptional :problematic connections on the server
+        @return None
+        
+        Trying to get the customer's request and splitting into several situations.
+        1. If the request is received and exists it converts the request to the Request format
+        And performs the relevant function
+        2. Any other problem the customer is added to the e list exceptional
+        '''
         try:
             request_string = connection.recv(4096).decode()
         except Exception as e:
@@ -317,14 +406,20 @@ class TCPServer(Iserver):
             exceptional.append(connection)
             print(e)
 
-    def readUDP(self, connection:socket) -> None:  
+    def readUDP(self, connection:socket) -> None: 
+        '''
+        The function is activated when we receive a client connection in the UDP protocol
+        @param connection: connection of client in UDP proto
+        @return None 
+        ''' 
         data,address=connection.recvfrom(4096)
         print(data,address)
         self.serverUDP.sendto("hello from server".encode(),address)
 
 
     # ------------------- public function --------------------
-    def register(self, req: IRequest, connection) -> bool:
+    
+    def register(self, req: IRequest, connection:socket) -> bool:
         name = req.get_user()
         password = req.get_password()
         response: Response = self.client_registration(
@@ -333,7 +428,7 @@ class TCPServer(Iserver):
             log=f"Request registar from  {name} -> {response.get_res()}")
         self.send_response(connection, response)
 
-    def login(self, req: IRequest, connection) -> bool:
+    def login(self, req: IRequest, connection:socket) -> bool:
         name = req.get_user()
         password = req.get_password()
         succ, response = self.client_login_req(
@@ -353,14 +448,14 @@ class TCPServer(Iserver):
         else:
             return False
 
-    def send_msg(self, req: IRequest, connection) -> bool:
+    def send_msg(self, req: IRequest, connection:socket) -> bool:
         self.send_message_by_name(req)
 
-    def send_msg_to_all(self, req: IRequest, connection) -> bool:
+    def send_msg_to_all(self, req: IRequest, connection:socket) -> bool:
         res = Response(res="brodcastMsg", body=req.body)
         self.brodcast(res, connection)
 
-    def get_files_list(self, req: IRequest, connection) -> bool:
+    def get_files_list(self, req: IRequest, connection:socket) -> bool:
         mypath = "./server/files"
         try:
             onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
@@ -370,7 +465,7 @@ class TCPServer(Iserver):
         except Exception as e:
             print(e)
 
-    def get_file(self, req: IRequest, connection) -> bool:
+    def get_file(self, req: IRequest, connection:socket) -> bool:
         mypath = "./server/files"
         try:
             fileName = req.get_file_name()
@@ -396,6 +491,9 @@ class TCPServer(Iserver):
         return False
 
     def __call__(self) -> None:
+        '''
+        This is the primary function that handles new customer requests and routes them to the appropriate destination
+        '''
         inputs = [self.serverTCP, self.serverUDP, ]
         outputs = []
         self.connectDB()
@@ -425,6 +523,9 @@ class TCPServer(Iserver):
             self.ThreadList = [th for th in self.ThreadList if th.is_alive()]
 
     def __del__(self) -> None:
+        '''
+        A function performed when the object is erased from memory
+        '''
         self.close_connection_TCP()
         print("Server destroyed, Goodbye!")
 

@@ -14,30 +14,67 @@ class IRequest:
                                        "to": toClient}
         self.origin = origin
     
-    def get_req(self):
+    def get_req(self) -> str:
+        # override this
         '''
-        
-        
+        return request from header
         '''
         pass
     
-    def get_data(self):
+    def get_data(self) -> dict[str,str]:
+        # override this
+        '''
+        return dict of data request
+        '''
         pass
 
-    def get_origin(self):
+    def get_origin(self)->str:
+        # override this
+        '''
+        return origin from request
+        '''
         pass
 
-    def get_date(self):
+    def get_date(self)->str:
+        # override this
+        '''
+        return the date from request
+        '''
         pass
 
-    def get_user(self):
+    def get_user(self)->str:
+        # override this   
+        '''
+        return the user name from requst,
+        if user does't exist return ""
+        '''
         pass
 
-    def get_password(self):
+    def get_password(self)->str:
+        # override this
+        '''
+        return the user password from requst,
+        if password does't exist return ""
+        '''
         pass
 
-    def get_toClient(self):
+    def get_toClient(self)->str:
+        '''
+        return the user name of client 
+        '''
+        pass
+    
+    def get_file_name(self)->str:
+        # override this
+        '''
+        return the file name from request,
+        if file name does't exist return ""
+        '''
         pass
 
     def __str__(self):
+        # override this  
+        '''
+        return the details of request 
+        '''
         pass

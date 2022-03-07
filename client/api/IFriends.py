@@ -22,11 +22,17 @@ class IFriend:
                           indent=4,
                           separators=(',', ': '))
     
-    def write(self):
+    def write(self, *args, **kwargs)->None:
+        '''
+        The function adds to the message or log file of that client
+        @return None
+        '''
         pass
     
-    def read(self):
+    def read(self, filename: str, f=0, to=10)->tuple[list,int,int]:
+        '''
+        The function reads from the message or logs file of that client
+        @return None
+        '''
         pass
     
-    def __repr__(self) -> str:
-        pass

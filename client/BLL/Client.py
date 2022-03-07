@@ -15,7 +15,7 @@ from api.IClient import Iclient
 from api.IFriends import IFriend
 from api.IRequest import IRequest
 from api.IResponse import IResponse
-from .run_client import Client_Start
+from .controllerUDP import Client_Start
 LOCK = Lock()
 
 class Request(IRequest):
@@ -95,7 +95,7 @@ class Friend(IFriend):
         except:
             pass
 
-    def read(self, filename: str, f=0, to=10):
+    def read(self, filename: str, f=0, to=10)->tuple[list,int,int]:
         file_Name = self.msg_file if filename == "msg"else self.log_file
         listObj = []
         try:
@@ -133,7 +133,11 @@ class Client(Iclient):
 
         self.load_options()
 
-    def load_options(self):
+    def load_options(self)->None:
+        '''
+        The function builds a dictionary of functions for easier use
+        @return None
+        '''
         self.options["udpateFriend"] = self.udpateFriend
         self.options["brodcastMsg"] = self.brodcast
         self.options["msg"] = self.get_msg
@@ -143,6 +147,10 @@ class Client(Iclient):
         self.options["Server Ex"] = self.err_download_file
 
     def connect_to_TCP(self) -> bool:
+        """
+        connect to client on TCP protocol 
+        @return: True if connect successful False o.w.
+        """
         try:
             self._socket_TCP.connect((self.host, self.port))
             print("The connection was successful (TCP)")
@@ -152,7 +160,11 @@ class Client(Iclient):
             print("The connection failed (TCP)")
             return False
 
-    def connect_to_UDP(self):
+    def connect_to_UDP(self)-> bool:
+        """
+        connect to client on UDP protocol 
+        @return: True if connect successful False o.w.
+        """
         try:
             print("The connection was successful (UDP)")
             self.connectedUDP = True
@@ -162,6 +174,10 @@ class Client(Iclient):
             return False
 
     def close_connection_TCP(self):
+        """
+        close connection client on TCP protocol 
+        @return: True if close successful False o.w.
+        """
         try:
             self._socket_TCP.close()
             print("The close connection was successful (TCP)")
@@ -172,6 +188,10 @@ class Client(Iclient):
             return False
 
     def close_connection_UDP(self):
+        """
+        close connection client on UDP protocol 
+        @return: True if close successful False o.w.
+        """
         try:
             self._socket_UDP.close()
             print("The close connection was successful (UDP)")
@@ -190,7 +210,7 @@ class Client(Iclient):
             os.mkdir(self.path)
             return True
 
-    def create_data_directory_friends(self, data: dict):
+    def create_data_directory_friends(self, data: dict)->None:
         with LOCK:
             friends_list: list[str] = data.get("listOnline")
             friends_list.remove(self.name)
@@ -269,15 +289,25 @@ class Client(Iclient):
             return False, "IoException"
         return False, response_object.get_res()
 
-    def readTCP(self, connection):
+    def readTCP(self, connection:socket)->None:
+        '''
+        The function receives a TCP connection and reads it
+        '''
         if connection is self._socket_TCP:
             self.server_response(connection)
 
-    def readUDP(self, connection: socket):
+    def readUDP(self, connection: socket)->None:
+        '''
+        The function receives a UDP connection and reads it
+        '''
         data, address = connection.recvfrom(4096)
         print(data, address)
 
-    def server_response(self, connection) -> None:
+    def server_response(self, connection:socket) -> None:
+        '''
+        The function reads the message from the server
+        and converts the message to the reply object and then routes it
+        '''
         try:
             response_string = connection.recv(4096).decode()
             if response_string:
@@ -290,7 +320,7 @@ class Client(Iclient):
         except Exception as e:
             print(e)
 
-    def udpateFriend(self, res: Response) -> None:
+    def udpateFriend(self, res: IResponse) -> None:
         self.create_data_directory_friends(res.get_data())
         self.mc += 1
 
@@ -305,6 +335,9 @@ class Client(Iclient):
         self.mc += 1
 
     def set_file_list(self, res: IResponse) -> None:
+        '''
+        The function saves the downloadable files from the server in the variable
+        '''
         try:
             self.file_list = res.get_data()["filesList"]
         except Exception as e:
@@ -320,13 +353,14 @@ class Client(Iclient):
         self.friends.get(nameFriend).write(
             "msg", msg=msg, fromClient=nameFriend, toClient=self.name, date=dateT)
         self.mc += 1
-    def d_download_file(self,res:IResponse):
+    
+    def d_download_file(self,res:IResponse)->None:
         pass
     
-    def err_download_file(self,res:IResponse):
+    def err_download_file(self,res:IResponse)->None:
         pass
     
-    def download_file(self, res: IResponse):
+    def download_file(self, res: IResponse)->bool:
         try:
             downloadFlag = res.get_data()["flag"]
             
@@ -340,7 +374,7 @@ class Client(Iclient):
         except Exception as e:
             print(e)        
 
-    def request(self, req: str = "", fileName: str = "",  password: str = "", origin: str = "", toClient: str = "", *args, **kwargs):
+    def request(self, req: str = "", fileName: str = "",  password: str = "", origin: str = "", toClient: str = "", *args, **kwargs)->None:
         request = Request(req=req, fileName=fileName, user=self.name, password=password,
                           origin=origin, toClient=toClient, *args, **kwargs)
         try:
@@ -350,7 +384,7 @@ class Client(Iclient):
             print(f"fail send \"{request}\"\n")
             return False, "error"
 
-    def response(self):
+    def response(self)->None:
         inputs = [self._socket_TCP, self._socket_UDP]
         outputs = []
         while self.connectedTCP:
@@ -374,4 +408,7 @@ class Client(Iclient):
         print("Client destroyed, Goodbye!")
 
     def __str__(self) -> str:
+        '''
+        A function performed when the object is erased from memory
+        '''
         return f"id {self.id}\nname {self.name}\nport {self.port}\nhost {self.host}"

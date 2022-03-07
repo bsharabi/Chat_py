@@ -3,16 +3,6 @@ from os import getcwd
 
 workingDir = format(getcwd())
 
-
-def read_args(file_name):
-    args = {}
-    with open(file_name) as input:
-        for line in input:
-            (key, val) = line.strip().split('=')
-            args[key] = val
-    return args
-
-
 def print_line():
     print(f"{color.BLACK}{color.UNDERLINE}                                               {color.END}", file=sys.stderr)
 
