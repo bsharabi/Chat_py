@@ -35,11 +35,11 @@ $ git clone https://github.com/bsharabi/Chat_py.git
 # Go into the repository
 $ cd Chat_py
 # Open the terminal on Windows
-$ Run "python3.9 Controller <host> <port>"
+$ Run "py .\server\Controller.py <host> <port>"
 # Open the terminal on Linux
-$ Run "python3 Controller <host> <port>"
+$ Run "python .\server\Controller.py <host> <port>"
 # Example
-$ Run "python3/3.9 Controller localhost 3000"
+$ Run "py .\server\Controller.py localhost 3000"
 ```
 
 ## Running Server without argv:
@@ -48,7 +48,7 @@ It is possible to run in the following way without       arguments and the defau
 host = localhost
 port = 3000
 # Example
-$ Run "python3/3.9 Controller"
+$ Run "py .\server\Controller.py"
 ```
 
 ## Running Client:
@@ -58,9 +58,9 @@ $ git clone https://github.com/bsharabi/Chat_py.git
 # Go into the repository
 $ cd Chat_py
 # Open the terminal on Windows
-$ Run "python3.9 Controller.py"
+$ Run "py .\client\Controller.py"
 # Open the terminal on Linux
-$ Run "python3 Controller"
+$ Run "python .\client\Controller.py"
 ```
 
 ## How To Run App:
