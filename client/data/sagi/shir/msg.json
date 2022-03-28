@@ -1,0 +1,20 @@
+[
+    {
+        "msg": "wdd",
+        "fromClient": "shir",
+        "toClient": "sagi",
+        "date": "07/03/2022 02:05:54"
+    },
+    {
+        "msg": "jrt",
+        "fromClient": "sagi",
+        "toClient": "shir",
+        "date": "07/03/2022 19:01:49"
+    },
+    {
+        "msg": "ddd",
+        "fromClient": "sagi",
+        "toClient": "shir",
+        "date": "07/03/2022 19:02:16"
+    }
+]

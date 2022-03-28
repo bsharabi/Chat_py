@@ -1,0 +1,14 @@
+[
+    {
+        "msg": "sagi:hello",
+        "fromClient": "Friends Group",
+        "toClient": "shir",
+        "date": "07/03/2022 19:01:36"
+    },
+    {
+        "msg": "barak:hello",
+        "fromClient": "Friends Group",
+        "toClient": "shir",
+        "date": "07/03/2022 19:01:42"
+    }
+]

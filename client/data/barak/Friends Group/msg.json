@@ -1,0 +1,44 @@
+[
+    {
+        "msg": "daniel:hello",
+        "fromClient": "Friends Group",
+        "toClient": "barak",
+        "date": "07/03/2022 15:10:58"
+    },
+    {
+        "msg": "sagi:hello",
+        "fromClient": "Friends Group",
+        "toClient": "barak",
+        "date": "07/03/2022 19:01:36"
+    },
+    {
+        "msg": "barak:hello",
+        "fromClient": "barak",
+        "toClient": "Friends Group",
+        "date": "07/03/2022 19:01:42"
+    },
+    {
+        "msg": "shadi:hello",
+        "fromClient": "Friends Group",
+        "toClient": "barak",
+        "date": "07/03/2022 19:57:12"
+    },
+    {
+        "msg": "sagi:hello",
+        "fromClient": "Friends Group",
+        "toClient": "barak",
+        "date": "07/03/2022 19:59:52"
+    },
+    {
+        "msg": "sagi:ffff",
+        "fromClient": "Friends Group",
+        "toClient": "barak",
+        "date": "07/03/2022 20:00:11"
+    },
+    {
+        "msg": "shadi:fff",
+        "fromClient": "Friends Group",
+        "toClient": "barak",
+        "date": "07/03/2022 20:00:15"
+    }
+]

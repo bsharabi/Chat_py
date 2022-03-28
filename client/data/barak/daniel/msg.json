@@ -1,0 +1,14 @@
+[
+    {
+        "msg": "xxx",
+        "fromClient": "barak",
+        "toClient": "daniel",
+        "date": "07/03/2022 15:11:10"
+    },
+    {
+        "msg": "xxx",
+        "fromClient": "daniel",
+        "toClient": "barak",
+        "date": "07/03/2022 15:11:14"
+    }
+]

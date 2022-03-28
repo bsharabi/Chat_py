@@ -1,0 +1,2945 @@
+[
+    {
+        "log": "2022-03-04 20:43:44.777509 Request connect from  ('127.0.0.1', 57826) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-04 20:45:42.206848 Request connect from  ('127.0.0.1', 57852) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-04 20:46:00.484281 Request connect from  ('127.0.0.1', 57858) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-04 20:52:53.668225 Request connect from  ('127.0.0.1', 57931) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 20:54:11.178558 Request connect from  ('127.0.0.1', 57957) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 20:54:36.648973 Request connect from  ('127.0.0.1', 57961) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 20:55:30.204541 Request connect from  ('127.0.0.1', 57969) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 20:55:56.457108 Request connect from  ('127.0.0.1', 57973) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 20:57:26.510815 Request connect from  ('127.0.0.1', 57993) -> client1"
+    },
+    {
+        "log": "2022-03-04 20:57:30.196711 Request connect from  ('127.0.0.1', 57994) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 20:57:57.171744 Request connect from  ('127.0.0.1', 57999) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 20:59:36.063534 Request connect from  ('127.0.0.1', 58018) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:00:03.458377 Request connect from  ('127.0.0.1', 58029) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:00:24.579655 Request connect from  ('127.0.0.1', 58033) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:03:07.692944 Request connect from  ('127.0.0.1', 58058) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:04:36.366007 Request connect from  ('127.0.0.1', 58069) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:05:37.224826 Request connect from  ('127.0.0.1', 58081) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:06:08.858308 Request connect from  ('127.0.0.1', 58093) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:07:03.711340 Request connect from  ('127.0.0.1', 58108) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:08:09.255951 Request connect from  ('127.0.0.1', 52496) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:10:27.935791 Request connect from  ('127.0.0.1', 52526) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-04 21:10:50.970216 Request connect from  ('127.0.0.1', 52529) -> client2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:11:47.447296 Request connect from  ('127.0.0.1', 52543) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-04 21:11:59.275552 Request connect from  ('127.0.0.1', 52547) -> client2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-04 21:14:45.314863 Request connect from  ('127.0.0.1', 52596) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-04 21:14:53.622970 Request connect from  ('127.0.0.1', 52598) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-04 21:25:22.557094 Request connect from  ('127.0.0.1', 52757) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-04 21:25:31.001764 Request connect from  ('127.0.0.1', 52759) -> client2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:26:19.244698 Request connect from  ('127.0.0.1', 52762) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-04 21:26:27.119872 Request connect from  ('127.0.0.1', 52764) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:27:38.271612 Request connect from  ('127.0.0.1', 52773) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-04 21:27:45.402910 Request connect from  ('127.0.0.1', 52775) -> client2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:29:30.831263 Request connect from  ('127.0.0.1', 52798) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-04 21:29:38.940002 Request connect from  ('127.0.0.1', 52801) -> client2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-04 21:35:57.459632 Request connect from  ('127.0.0.1', 52866) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-04 21:36:12.390995 Request connect from  ('127.0.0.1', 52868) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Client connected"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-04 21:41:36.896960 Request connect from  ('127.0.0.1', 52922) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-04 21:41:45.316550 Request connect from  ('127.0.0.1', 52924) -> client2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-04 21:42:41.226667 Request connect from  ('127.0.0.1', 52931) -> client3"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 13:37:33.931067 Request connect from  ('127.0.0.1', 57201) -> client1"
+    },
+    {
+        "log": "2022-03-05 13:39:23.929250 Request connect from  ('127.0.0.1', 57239) -> client1"
+    },
+    {
+        "log": "2022-03-05 13:40:05.258279 Request connect from  ('127.0.0.1', 57254) -> client1"
+    },
+    {
+        "log": "2022-03-05 13:48:42.710501 Request connect from  ('127.0.0.1', 57519) -> client1"
+    },
+    {
+        "log": "2022-03-05 13:49:10.868327 Request connect from  ('127.0.0.1', 57523) -> client1"
+    },
+    {
+        "log": "2022-03-05 14:02:56.030122 Request connect from  ('127.0.0.1', 57807) -> client1"
+    },
+    {
+        "log": "2022-03-05 14:07:56.829067 Request connect from  ('127.0.0.1', 55006) -> client1"
+    },
+    {
+        "log": "2022-03-05 14:23:24.060815 Request connect from  ('127.0.0.1', 55209) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:40:04.050949 Request connect from  ('127.0.0.1', 57489) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-05 14:40:12.325475 Request connect from  ('127.0.0.1', 57497) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:41:00.671242 Request connect from  ('127.0.0.1', 57512) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 14:42:00.329074 Request connect from  ('127.0.0.1', 57515) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 14:42:11.606280 Request connect from  ('127.0.0.1', 57519) -> client0"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:45:25.454779 Request connect from  ('127.0.0.1', 57549) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:46:50.261109 Request connect from  ('127.0.0.1', 57570) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:48:59.925748 Request connect from  ('127.0.0.1', 57693) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:50:41.421595 Request connect from  ('127.0.0.1', 57715) -> client0"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:52:09.515049 Request connect from  ('127.0.0.1', 57733) -> client-1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:53:38.631070 Request connect from  ('127.0.0.1', 57770) -> client-1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-05 14:54:01.754642 Request connect from  ('127.0.0.1', 57776) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 14:57:55.337079 Request connect from  ('127.0.0.1', 57841) -> client-2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-05 14:58:02.826816 Request connect from  ('127.0.0.1', 57843) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:00:53.742468 Request connect from  ('127.0.0.1', 57896) -> client-2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-05 15:00:58.938927 Request connect from  ('127.0.0.1', 57897) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:03:40.210840 Request connect from  ('127.0.0.1', 57925) -> client-3"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 15:04:29.153048 Request connect from  ('127.0.0.1', 57931) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:05:09.855522 Request connect from  ('127.0.0.1', 57938) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 15:05:28.855278 Request connect from  ('127.0.0.1', 57947) -> client-2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:06:33.224516 Request connect from  ('127.0.0.1', 57959) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 15:06:42.150698 Request connect from  ('127.0.0.1', 57961) -> client-2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-05 15:06:53.355443 Request connect from  ('127.0.0.1', 57962) -> client-1"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 15:09:47.170630 Request connect from  ('127.0.0.1', 51757) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 15:09:56.391198 Request connect from  ('127.0.0.1', 51760) -> client2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "2022-03-05 15:10:08.562962 Request connect from  ('127.0.0.1', 51761) -> client3"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 15:15:37.173582 Request connect from  ('127.0.0.1', 51846) -> client3"
+    },
+    {
+        "log": "Request login from  barak -> Client connected"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 15:16:14.857226 Request connect from  ('127.0.0.1', 51853) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 15:16:27.209426 Request connect from  ('127.0.0.1', 51856) -> client2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-05 15:16:41.538842 Request connect from  ('127.0.0.1', 51857) -> client3"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 15:17:20.077481 Request connect from  ('127.0.0.1', 51863) -> client3"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:20:00.869556 Request connect from  ('127.0.0.1', 51882) -> client3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 15:20:50.122657 Request connect from  ('127.0.0.1', 51888) -> client3"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 15:23:11.455460 Request connect from  ('127.0.0.1', 51924) -> client1"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-05 15:23:20.172795 Request connect from  ('127.0.0.1', 51934) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 15:23:26.991381 Request connect from  ('127.0.0.1', 51935) -> client3"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 15:26:23.969440 Request connect from  ('127.0.0.1', 51962) -> client3"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "2022-03-05 15:29:49.728943 Request connect from  ('127.0.0.1', 52007) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:31:05.975707 Request connect from  ('127.0.0.1', 52028) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:32:07.970329 Request connect from  ('127.0.0.1', 52037) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:34:26.942045 Request connect from  ('127.0.0.1', 55666) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:34:59.743150 Request connect from  ('127.0.0.1', 55681) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 15:35:12.556334 Request connect from  ('127.0.0.1', 55684) -> client2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:37:14.432685 Request connect from  ('127.0.0.1', 55724) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 15:37:21.237931 Request connect from  ('127.0.0.1', 55727) -> client2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 15:38:12.216625 Request connect from  ('127.0.0.1', 55735) -> client2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 15:39:35.365582 Request connect from  ('127.0.0.1', 55755) -> client2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 15:41:49.659441 Request connect from  ('127.0.0.1', 55779) -> client1"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:51:01.739046 Request connect from  ('127.0.0.1', 55880) -> client1"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "2022-03-05 15:51:07.707480 Request connect from  ('127.0.0.1', 55889) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 15:55:34.960700 Request connect from  ('127.0.0.1', 55938) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 15:55:56.377081 Request connect from  ('127.0.0.1', 55940) -> client2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "2022-03-05 15:56:47.365080 Request connect from  ('127.0.0.1', 55946) -> client3"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "2022-03-05 15:57:19.495839 Request connect from  ('127.0.0.1', 55951) -> client4"
+    },
+    {
+        "log": "Request login from  sagi -> Failure"
+    },
+    {
+        "log": "Request registar from  sagi -> available"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "2022-03-05 15:57:48.684460 Request connect from  ('127.0.0.1', 55953) -> client5"
+    },
+    {
+        "log": "Request login from  mesi -> Success"
+    },
+    {
+        "log": "2022-03-05 15:58:09.206920 Request connect from  ('127.0.0.1', 55963) -> client6"
+    },
+    {
+        "log": "Request login from  daniel -> Success"
+    },
+    {
+        "log": "2022-03-05 15:58:26.922180 Request connect from  ('127.0.0.1', 55967) -> client7"
+    },
+    {
+        "log": "Request login from  kori -> Success"
+    },
+    {
+        "log": "2022-03-05 15:59:26.323186 Request connect from  ('127.0.0.1', 55973) -> client8"
+    },
+    {
+        "log": "Request login from  laor -> Failure"
+    },
+    {
+        "log": "Request registar from  laor -> available"
+    },
+    {
+        "log": "Request login from  laor -> Success"
+    },
+    {
+        "log": "2022-03-05 16:01:35.861610 Request connect from  ('127.0.0.1', 55990) -> client9"
+    },
+    {
+        "log": "Request registar from  naor -> available"
+    },
+    {
+        "log": "Request login from  naor -> Success"
+    },
+    {
+        "log": "2022-03-05 16:04:17.141112 Request connect from  ('127.0.0.1', 56033) -> client10"
+    },
+    {
+        "log": "Request registar from  gal -> available"
+    },
+    {
+        "log": "Request login from  gal -> Success"
+    },
+    {
+        "log": "Lost connection with gal"
+    },
+    {
+        "log": "Lost connection with naor"
+    },
+    {
+        "log": "Lost connection with kori"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with daniel"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with laor"
+    },
+    {
+        "log": "2022-03-05 16:06:10.617060 Request connect from  ('127.0.0.1', 56059) -> client2"
+    },
+    {
+        "log": "Request login from  gal -> Success"
+    },
+    {
+        "log": "Lost connection with mesi"
+    },
+    {
+        "log": "Lost connection with gal"
+    },
+    {
+        "log": "2022-03-05 16:25:35.754655 Request connect from  ('127.0.0.1', 54856) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:26:18.477702 Request connect from  ('127.0.0.1', 54862) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:28:52.833671 Request connect from  ('127.0.0.1', 54878) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:30:02.591959 Request connect from  ('127.0.0.1', 54906) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:34:41.855206 Request connect from  ('127.0.0.1', 57849) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:39:26.397106 Request connect from  ('127.0.0.1', 57942) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 16:40:21.458941 Request connect from  ('127.0.0.1', 57949) -> client1"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:44:00.922055 Request connect from  ('127.0.0.1', 58018) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:46:07.511791 Request connect from  ('127.0.0.1', 58050) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:49:31.579909 Request connect from  ('127.0.0.1', 58096) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:50:35.763276 Request connect from  ('127.0.0.1', 58115) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:51:33.289938 Request connect from  ('127.0.0.1', 58127) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:52:27.107842 Request connect from  ('127.0.0.1', 58135) -> client-4"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:56:00.631610 Request connect from  ('127.0.0.1', 58178) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 16:56:25.104038 Request connect from  ('127.0.0.1', 58180) -> client2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 16:57:43.532452 Request connect from  ('127.0.0.1', 58210) -> client2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:58:35.644683 Request connect from  ('127.0.0.1', 58217) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 16:58:43.439936 Request connect from  ('127.0.0.1', 58218) -> client1"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 16:59:32.046719 Request connect from  ('127.0.0.1', 58233) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 16:59:52.018140 Request connect from  ('127.0.0.1', 58236) -> client0"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 17:01:04.779163 Request connect from  ('127.0.0.1', 58254) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:03:03.340385 Request connect from  ('127.0.0.1', 58279) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:04:05.972615 Request connect from  ('127.0.0.1', 58297) -> client-2"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 17:05:11.099814 Request connect from  ('127.0.0.1', 58310) -> client-5"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:05:58.624530 Request connect from  ('127.0.0.1', 58314) -> client-4"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 17:07:54.399148 Request connect from  ('127.0.0.1', 58341) -> client-7"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:08:18.752386 Request connect from  ('127.0.0.1', 59407) -> client-6"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 17:17:31.230521 Request connect from  ('127.0.0.1', 59517) -> client-9"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:17:48.901966 Request connect from  ('127.0.0.1', 59523) -> client-8"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 17:19:02.935219 Request connect from  ('127.0.0.1', 59550) -> client-11"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:19:17.018165 Request connect from  ('127.0.0.1', 59553) -> client-10"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 17:22:29.680898 Request connect from  ('127.0.0.1', 59595) -> client-13"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:22:38.104689 Request connect from  ('127.0.0.1', 59596) -> client-12"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 17:23:31.874162 Request connect from  ('127.0.0.1', 59603) -> client-15"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:23:40.103401 Request connect from  ('127.0.0.1', 59605) -> client-14"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-05 17:25:50.835565 Request connect from  ('127.0.0.1', 59629) -> client-15"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:26:00.493307 Request connect from  ('127.0.0.1', 59631) -> client-14"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:31:27.088393 Request connect from  ('127.0.0.1', 59727) -> client-16"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:31:36.137897 Request connect from  ('127.0.0.1', 59732) -> client-15"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:43:43.886417 Request connect from  ('127.0.0.1', 51086) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:44:13.779223 Request connect from  ('127.0.0.1', 51095) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:44:41.643372 Request connect from  ('127.0.0.1', 51101) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:45:48.231610 Request connect from  ('127.0.0.1', 51109) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:50:52.931413 Request connect from  ('127.0.0.1', 51190) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:52:40.567563 Request connect from  ('127.0.0.1', 51213) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:54:57.708145 Request connect from  ('127.0.0.1', 51241) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:57:49.021976 Request connect from  ('127.0.0.1', 51278) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 17:59:16.072294 Request connect from  ('127.0.0.1', 51298) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 17:59:33.556531 Request connect from  ('127.0.0.1', 51302) -> client-1"
+    },
+    {
+        "log": "Request login from  laor -> Success"
+    },
+    {
+        "log": "Lost connection with laor"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:08:50.259224 Request connect from  ('127.0.0.1', 65172) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:09:41.469047 Request connect from  ('127.0.0.1', 65181) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:10:04.220040 Request connect from  ('127.0.0.1', 65185) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:14:28.294486 Request connect from  ('127.0.0.1', 65247) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:14:55.804976 Request connect from  ('127.0.0.1', 65253) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:16:10.035539 Request connect from  ('127.0.0.1', 65267) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:16:40.268674 Request connect from  ('127.0.0.1', 65278) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:16:59.964677 Request connect from  ('127.0.0.1', 65285) -> client-3"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:26:02.795830 Request connect from  ('127.0.0.1', 65382) -> client1"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "2022-03-05 18:26:33.990783 Request connect from  ('127.0.0.1', 65384) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:30:40.791840 Request connect from  ('127.0.0.1', 65407) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:33:34.937349 Request connect from  ('127.0.0.1', 64948) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:34:40.075927 Request connect from  ('127.0.0.1', 64958) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:35:11.652309 Request connect from  ('127.0.0.1', 64971) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:45:12.964876 Request connect from  ('127.0.0.1', 65089) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:48:56.807987 Request connect from  ('127.0.0.1', 65134) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 18:57:02.627717 Request connect from  ('127.0.0.1', 65254) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:07:03.507525 Request connect from  ('127.0.0.1', 65362) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:07:57.181995 Request connect from  ('127.0.0.1', 65380) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:08:47.703585 Request connect from  ('127.0.0.1', 54023) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:09:34.952494 Request connect from  ('127.0.0.1', 54031) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:10:07.907057 Request connect from  ('127.0.0.1', 54044) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:11:33.924392 Request connect from  ('127.0.0.1', 54062) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:12:19.934482 Request connect from  ('127.0.0.1', 54069) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:12:46.952851 Request connect from  ('127.0.0.1', 54080) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 19:18:36.301473 Request connect from  ('127.0.0.1', 54140) -> client1"
+    },
+    {
+        "log": "Request login from  daniel -> Success"
+    },
+    {
+        "log": "Lost connection with daniel"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:20:09.792083 Request connect from  ('127.0.0.1', 54154) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:21:41.631133 Request connect from  ('127.0.0.1', 54166) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:25:39.156860 Request connect from  ('127.0.0.1', 54219) -> client0"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:26:07.138799 Request connect from  ('127.0.0.1', 54225) -> client-1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 19:26:47.797094 Request connect from  ('127.0.0.1', 54231) -> client-2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:03:12.074003 Request connect from  ('127.0.0.1', 53767) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:04:51.430469 Request connect from  ('127.0.0.1', 53798) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:08:29.072170 Request connect from  ('127.0.0.1', 57478) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:12:04.570992 Request connect from  ('127.0.0.1', 57533) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:12:38.146074 Request connect from  ('127.0.0.1', 57539) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:16:53.659040 Request connect from  ('127.0.0.1', 57698) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-05 20:18:04.777794 Request connect from  ('127.0.0.1', 57726) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:22:09.171140 Request connect from  ('127.0.0.1', 57767) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:23:07.425234 Request connect from  ('127.0.0.1', 57778) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-05 20:24:17.524654 Request connect from  ('127.0.0.1', 57798) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 11:39:00.368779 Request connect from  ('127.0.0.1', 61437) -> client1"
+    },
+    {
+        "log": "2022-03-06 11:41:05.681321 Request connect from  ('127.0.0.1', 64210) -> client1"
+    },
+    {
+        "log": "2022-03-06 11:45:40.464494 Request connect from  ('127.0.0.1', 64285) -> client1"
+    },
+    {
+        "log": "2022-03-06 11:45:55.343107 Request connect from  ('127.0.0.1', 64300) -> client2"
+    },
+    {
+        "log": "2022-03-06 12:17:29.959171 Request connect from  ('127.0.0.1', 62296) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "2022-03-06 12:20:02.477619 Request connect from  ('127.0.0.1', 62329) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak__ -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Client connected"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 12:20:52.564278 Request connect from  ('127.0.0.1', 62343) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Client connected"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 12:24:19.003555 Request connect from  ('127.0.0.1', 62393) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak__ -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Client connected"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 12:24:59.303592 Request connect from  ('127.0.0.1', 62413) -> client1"
+    },
+    {
+        "log": "2022-03-06 12:26:29.416832 Request connect from  ('127.0.0.1', 62433) -> client1"
+    },
+    {
+        "log": "2022-03-06 12:28:42.421350 Request connect from  ('127.0.0.1', 62471) -> client1"
+    },
+    {
+        "log": "2022-03-06 12:32:40.302919 Request connect from  ('127.0.0.1', 50119) -> client1"
+    },
+    {
+        "log": "2022-03-06 12:33:44.975994 Request connect from  ('127.0.0.1', 50132) -> client1"
+    },
+    {
+        "log": "2022-03-06 12:37:31.427292 Request connect from  ('127.0.0.1', 50175) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 12:41:33.680524 Request connect from  ('127.0.0.1', 50265) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 12:42:52.286672 Request connect from  ('127.0.0.1', 50286) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  avital -> available"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 12:50:18.617528 Request connect from  ('127.0.0.1', 50384) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak__ -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Client connected"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 12:50:24.441718 Request connect from  ('127.0.0.1', 50386) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  avital -> User exist"
+    },
+    {
+        "log": "2022-03-06 12:55:15.037388 Request connect from  ('127.0.0.1', 64606) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak__ -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Client connected"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 12:55:21.067931 Request connect from  ('127.0.0.1', 64609) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  extended-detail -> available"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 12:55:49.195731 Request connect from  ('127.0.0.1', 64639) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak__ -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Client connected"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 12:55:55.292457 Request connect from  ('127.0.0.1', 64641) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  planar-category -> available"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 13:08:43.544399 Request connect from  ('127.0.0.1', 64811) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  accepting-leisure -> available"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 13:09:24.220242 Request connect from  ('127.0.0.1', 64829) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  steel-centroid -> available"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 13:09:41.639841 Request connect from  ('127.0.0.1', 58480) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak__ -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:09:43.972102 Request connect from  ('127.0.0.1', 58490) -> client2"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  obnoxious-osprey -> available"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 13:10:57.370933 Request connect from  ('127.0.0.1', 58515) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  concrete-swamp -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:14:13.911554 Request connect from  ('127.0.0.1', 58546) -> client2"
+    },
+    {
+        "log": "2022-03-06 13:14:32.507607 Request connect from  ('127.0.0.1', 58556) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:16:14.060835 Request connect from  ('127.0.0.1', 58579) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:18:21.298916 Request connect from  ('127.0.0.1', 58598) -> client2"
+    },
+    {
+        "log": "2022-03-06 13:18:33.731836 Request connect from  ('127.0.0.1', 58609) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 13:20:56.460475 Request connect from  ('127.0.0.1', 58648) -> client1"
+    },
+    {
+        "log": "Request login from  user -> Failure"
+    },
+    {
+        "log": "2022-03-06 13:21:51.926699 Request connect from  ('127.0.0.1', 58664) -> client1"
+    },
+    {
+        "log": "2022-03-06 13:21:51.928700 Request connect from  ('127.0.0.1', 58665) -> client2"
+    },
+    {
+        "log": "Request login from  user -> Failure"
+    },
+    {
+        "log": "2022-03-06 13:22:49.021007 Request connect from  ('127.0.0.1', 58691) -> client4"
+    },
+    {
+        "log": "2022-03-06 13:22:59.874136 Request connect from  ('127.0.0.1', 58699) -> client1"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  sagi -> Client connected"
+    },
+    {
+        "log": "2022-03-06 13:23:34.673675 Request connect from  ('127.0.0.1', 58711) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:26:42.540837 Request connect from  ('127.0.0.1', 58771) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:29:40.643174 Request connect from  ('127.0.0.1', 58801) -> client1"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:30:47.111708 Request connect from  ('127.0.0.1', 58819) -> client1"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:36:08.475753 Request connect from  ('127.0.0.1', 58899) -> client1"
+    },
+    {
+        "log": "2022-03-06 13:36:08.482756 Request connect from  ('127.0.0.1', 58902) -> client4"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  avital -> Failure"
+    },
+    {
+        "log": "2022-03-06 13:37:04.777751 Request connect from  ('127.0.0.1', 58919) -> client2"
+    },
+    {
+        "log": "2022-03-06 13:37:04.786714 Request connect from  ('127.0.0.1', 58922) -> client5"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  avital -> Failure"
+    },
+    {
+        "log": "2022-03-06 13:37:37.507659 Request connect from  ('127.0.0.1', 58945) -> client5"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  daniel -> Success"
+    },
+    {
+        "log": "Request login from  mesi -> Success"
+    },
+    {
+        "log": "Request login from  laor -> Success"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "2022-03-06 13:41:02.615408 Request connect from  ('127.0.0.1', 58998) -> client1"
+    },
+    {
+        "log": "2022-03-06 13:41:02.616387 Request connect from  ('127.0.0.1', 58999) -> client2"
+    },
+    {
+        "log": "2022-03-06 13:41:02.622388 Request connect from  ('127.0.0.1', 59002) -> client5"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  daniel -> Success"
+    },
+    {
+        "log": "Request login from  mesi -> Success"
+    },
+    {
+        "log": "Request login from  laor -> Success"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 13:41:34.280529 Request connect from  ('127.0.0.1', 59014) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Failure"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 13:41:40.683532 Request connect from  ('127.0.0.1', 59022) -> client1"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "Request registar from  gravitational-urn -> available"
+    },
+    {
+        "log": "Request registar from  barak -> User exist"
+    },
+    {
+        "log": "2022-03-06 13:41:47.487398 Request connect from  ('127.0.0.1', 59031) -> client1"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "2022-03-06 13:41:58.937910 Request connect from  ('127.0.0.1', 59044) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Request login from  daniel -> Success"
+    },
+    {
+        "log": "Request login from  mesi -> Success"
+    },
+    {
+        "log": "Request login from  laor -> Success"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "2022-03-06 13:43:45.383727 Request connect from  ('127.0.0.1', 59088) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 13:44:10.699152 Request connect from  ('127.0.0.1', 59091) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 20:18:27.711240 Request connect from  ('127.0.0.1', 58902) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 20:18:43.761376 Request connect from  ('127.0.0.1', 58905) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "2022-03-06 21:15:46.910733 Request connect from  ('127.0.0.1', 53935) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 21:19:31.267652 Request connect from  ('127.0.0.1', 53977) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 21:21:56.071138 Request connect from  ('127.0.0.1', 54019) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 21:23:20.446490 Request connect from  ('127.0.0.1', 54044) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 22:08:16.716856 Request connect from  ('127.0.0.1', 49701) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 22:17:24.334729 Request connect from  ('127.0.0.1', 58459) -> client1"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "2022-03-06 22:18:44.842606 Request connect from  ('127.0.0.1', 58476) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 22:19:55.434811 Request connect from  ('127.0.0.1', 58499) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 22:21:50.164803 Request connect from  ('127.0.0.1', 58527) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 22:25:12.846740 Request connect from  ('127.0.0.1', 58588) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 22:29:30.366272 Request connect from  ('127.0.0.1', 63676) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 22:30:26.095971 Request connect from  ('127.0.0.1', 63696) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 22:33:50.647030 Request connect from  ('127.0.0.1', 63744) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 22:34:21.383993 Request connect from  ('127.0.0.1', 63763) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 22:54:53.639704 Request connect from  ('127.0.0.1', 52182) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 22:55:32.986513 Request connect from  ('127.0.0.1', 52195) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "2022-03-06 22:58:48.491087 Request connect from  ('127.0.0.1', 52223) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:02:40.843202 Request connect from  ('127.0.0.1', 52265) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:03:34.800839 Request connect from  ('127.0.0.1', 52283) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:08:05.475284 Request connect from  ('127.0.0.1', 52328) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:12:19.069313 Request connect from  ('127.0.0.1', 63668) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:13:21.855837 Request connect from  ('127.0.0.1', 63681) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:14:58.082601 Request connect from  ('127.0.0.1', 63689) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:21:14.587675 Request connect from  ('127.0.0.1', 63778) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 23:22:17.723504 Request connect from  ('127.0.0.1', 63801) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:27:33.058236 Request connect from  ('127.0.0.1', 57144) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 23:28:00.025648 Request connect from  ('127.0.0.1', 57161) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 23:29:32.133705 Request connect from  ('127.0.0.1', 57177) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 23:34:12.130606 Request connect from  ('127.0.0.1', 57227) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-06 23:40:40.145879 Request connect from  ('127.0.0.1', 57394) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:42:18.337921 Request connect from  ('127.0.0.1', 49348) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:43:26.321748 Request connect from  ('127.0.0.1', 49371) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:54:58.186505 Request connect from  ('127.0.0.1', 56182) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-06 23:56:42.403504 Request connect from  ('127.0.0.1', 56211) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 00:09:00.064781 Request connect from  ('127.0.0.1', 56374) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:11:03.195293 Request connect from  ('127.0.0.1', 63123) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 00:12:39.701303 Request connect from  ('127.0.0.1', 63148) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 00:14:14.271067 Request connect from  ('127.0.0.1', 63177) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:15:50.635906 Request connect from  ('127.0.0.1', 63197) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:19:06.796040 Request connect from  ('127.0.0.1', 63256) -> client1"
+    },
+    {
+        "log": "2022-03-07 00:25:05.394983 Request connect from  ('127.0.0.1', 63466) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:28:30.019358 Request connect from  ('127.0.0.1', 63515) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:29:31.504452 Request connect from  ('127.0.0.1', 63535) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:29:53.118916 Request connect from  ('127.0.0.1', 63547) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:32:14.427445 Request connect from  ('127.0.0.1', 63577) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:32:49.746427 Request connect from  ('127.0.0.1', 63589) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:38:12.748614 Request connect from  ('127.0.0.1', 63694) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:39:43.567358 Request connect from  ('127.0.0.1', 63741) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:45:47.138298 Request connect from  ('127.0.0.1', 63811) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 00:55:23.232965 Request connect from  ('127.0.0.1', 57433) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 01:04:07.555058 Request connect from  ('127.0.0.1', 57559) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 01:11:04.036123 Request connect from  ('127.0.0.1', 60568) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 01:13:14.463984 Request connect from  ('127.0.0.1', 60600) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 01:16:10.617714 Request connect from  ('127.0.0.1', 60644) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 01:18:40.572938 Request connect from  ('127.0.0.1', 60675) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 01:19:42.894237 Request connect from  ('127.0.0.1', 60690) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 01:22:47.909641 Request connect from  ('127.0.0.1', 60731) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 01:24:33.939822 Request connect from  ('127.0.0.1', 60767) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 01:26:00.374207 Request connect from  ('127.0.0.1', 60793) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 01:57:52.837328 Request connect from  ('127.0.0.1', 51458) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 01:58:10.020312 Request connect from  ('127.0.0.1', 51461) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "2022-03-07 02:05:32.612583 Request connect from  ('127.0.0.1', 51533) -> client3"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 15:10:24.260524 Request connect from  ('127.0.0.1', 59094) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 15:10:35.964829 Request connect from  ('127.0.0.1', 59096) -> client2"
+    },
+    {
+        "log": "Request login from  daniel -> Failure"
+    },
+    {
+        "log": "Request login from  daniel -> Success"
+    },
+    {
+        "log": "Lost connection with daniel"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 17:01:23.287613 Request connect from  ('127.0.0.1', 59554) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 17:01:31.707143 Request connect from  ('127.0.0.1', 59556) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 17:02:07.689887 Request connect from  ('127.0.0.1', 59563) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-07 19:00:00.319343 Request connect from  ('127.0.0.1', 50716) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 19:00:11.499637 Request connect from  ('127.0.0.1', 50724) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "2022-03-07 19:00:24.386530 Request connect from  ('127.0.0.1', 50727) -> client3"
+    },
+    {
+        "log": "Request login from  shir -> Success"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with shir"
+    },
+    {
+        "log": "2022-03-07 19:54:31.281258 Request connect from  ('127.0.0.1', 57271) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 19:55:03.989292 Request connect from  ('127.0.0.1', 57375) -> client2"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "2022-03-07 19:56:20.980662 Request connect from  ('127.0.0.1', 57395) -> client3"
+    },
+    {
+        "log": "Request registar from  shadi -> available"
+    },
+    {
+        "log": "Request login from  shadi -> Success"
+    },
+    {
+        "log": "Lost connection with shadi"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "Lost connection with sagi"
+    },
+    {
+        "log": "2022-03-07 19:58:29.935929 Request connect from  ('127.0.0.1', 57410) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-07 19:59:04.080170 Request connect from  ('127.0.0.1', 57412) -> client2"
+    },
+    {
+        "log": "Request login from  shadi -> Success"
+    },
+    {
+        "log": "2022-03-07 19:59:34.702497 Request connect from  ('127.0.0.1', 57424) -> client3"
+    },
+    {
+        "log": "Request login from  sagi -> Success"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-17 19:59:24.752249 Request connect from  ('127.0.0.1', 60722) -> client1"
+    },
+    {
+        "log": "Request registar from  nana -> available"
+    },
+    {
+        "log": "Request login from  nana -> Success"
+    },
+    {
+        "log": "2022-03-17 19:59:44.750798 Request connect from  ('127.0.0.1', 60728) -> client2"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "Lost connection with nana"
+    },
+    {
+        "log": "Lost connection with barak"
+    },
+    {
+        "log": "2022-03-28 12:25:36.780294 Request connect from  ('127.0.0.1', 58517) -> client1"
+    },
+    {
+        "log": "Request login from  barak -> Success"
+    },
+    {
+        "log": "2022-03-28 12:25:52.292460 Request connect from  ('127.0.0.1', 58528) -> client2"
+    },
+    {
+        "log": "Request login from  liav -> Success"
+    },
+    {
+        "log": "Lost connection with liav"
+    },
+    {
+        "log": "Lost connection with barak"
+    }
+]

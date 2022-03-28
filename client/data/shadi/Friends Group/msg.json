@@ -1,0 +1,26 @@
+[
+    {
+        "msg": "shadi:hello",
+        "fromClient": "shadi",
+        "toClient": "Friends Group",
+        "date": "07/03/2022 19:57:12"
+    },
+    {
+        "msg": "sagi:hello",
+        "fromClient": "Friends Group",
+        "toClient": "shadi",
+        "date": "07/03/2022 19:59:52"
+    },
+    {
+        "msg": "sagi:ffff",
+        "fromClient": "Friends Group",
+        "toClient": "shadi",
+        "date": "07/03/2022 20:00:11"
+    },
+    {
+        "msg": "shadi:fff",
+        "fromClient": "shadi",
+        "toClient": "Friends Group",
+        "date": "07/03/2022 20:00:15"
+    }
+]
