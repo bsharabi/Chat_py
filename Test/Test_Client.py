@@ -8,9 +8,9 @@ import time
 import unittest
 from os import path
 import os
-from Server.BLL.TCP_server import TCPServer
-from Client.BLL.Client import Client
-from Server.DAL.DataBase import mongodb
+from server.BLL.TCP_server import TCPServer
+from client.BLL.Client import Client
+from server.DAL.DataBase import mongodb
 import threading
 import time
 import randomname

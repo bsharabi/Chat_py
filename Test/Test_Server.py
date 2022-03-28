@@ -6,13 +6,13 @@ sys.path.append(".")
 sys.path.append("Client")
 sys.path.append("Server")
 import unittest
-from Server.api.IRequest import *
+from server.api.IRequest import *
 
 import time
 import unittest
-from Server.BLL.TCP_server import TCPServer
-from Client.BLL.Client import Client
-from Server.DAL.DataBase import mongodb
+from server.BLL.TCP_server import TCPServer
+from client.BLL.Client import Client
+from server.DAL.DataBase import mongodb
 import threading
 import time
 import randomname

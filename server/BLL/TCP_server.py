@@ -11,10 +11,10 @@ import json
 from DAL.DataBase import mongodb
 from datetime import datetime
 import threading
-from Server.api.IRequest import *
-from Server.api.IResponse import *
-from Server.api.IClient import IClient
-from Server.api.IServer import *
+from server.api.IRequest import *
+from server.api.IResponse import *
+from server.api.IClient import IClient
+from server.api.IServer import *
 from .ServerUDP import *
 
 class Request(IRequest):

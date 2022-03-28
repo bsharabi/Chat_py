@@ -14,8 +14,8 @@ class IResponse:
         The function returns the message body
         @return dict 
         '''
-
     
+  
     def get_res(self)->str:
         # override this
         '''

@@ -4,7 +4,7 @@ import sys
 sys.path.append("Server")
 sys.path.append("./Server")
 sys.path.append(".")
-from Server.api.IResponse import IResponse
+from server.api.IResponse import IResponse
 from BLL.UDP_function import FileException,Server,SocketException,WindowSizeException
 from BLL.Setting_Simulation import *
 

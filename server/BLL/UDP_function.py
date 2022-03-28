@@ -14,7 +14,7 @@ from threading import Lock
 from threading import Thread
 
 from BLL.Setting_Simulation import *
-from Server.api.IResponse import IResponse
+from server.api.IResponse import IResponse
 
 # ---------- TEST/DEBUG ----------
 SIMULATE_ACK_LOSS = True
